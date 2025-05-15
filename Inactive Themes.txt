@@ -326,3 +326,402 @@ spacing_component {
 }
 
 ----------------------------------------------------
+
+Theme name: Customized 1
+Theme data:
+button_component {
+  property_set {
+    key {
+      section_style: EMPHASIS_2
+      button_style: "filled"
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_1
+      button_style: "filled"
+    }
+  }
+  property_set {
+    key {
+      section_style: REGULAR
+      button_style: "filled"
+    }
+    color {
+      red: 0.26666668
+      green: 0.29803923
+      blue: 0.4862745
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+  property_set {
+    key {
+      section_style: REGULAR
+      button_style: "outlined"
+    }
+    color {
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+  property_set {
+    key {
+      section_style: REGULAR
+      button_style: "text"
+    }
+    color {
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_1
+      button_style: "text"
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_2
+      button_style: "text"
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_1
+      button_style: "outlined"
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_2
+      button_style: "outlined"
+    }
+  }
+}
+divider_component {
+  property_set {
+    key {
+      section_style: REGULAR
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_1
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_2
+    }
+  }
+}
+image_carousel_component {
+  property_set {
+    key {
+      section_style: REGULAR
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_1
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_2
+    }
+  }
+}
+navigation_component {
+  property_set {
+    nav_background_color {
+      red: 0.26666668
+      green: 0.29803923
+      blue: 0.4862745
+      alpha {
+        value: 1.0
+      }
+    }
+    side_nav_item_spacing: 16.0
+    side_selection_style: SIDE_BOLD
+    top_nav_separator: NONE
+    top_selection_style: TOP_BOLD
+    transparent_at_top: false
+  }
+}
+scheme_color_component {
+  property_set {
+    key {
+      section_style: REGULAR
+    }
+    accent1 {
+      red: 0.2627451
+      green: 0.2627451
+      blue: 0.2627451
+      alpha {
+        value: 1.0
+      }
+    }
+    accent2 {
+      red: 0.2627451
+      green: 0.2627451
+      blue: 0.2627451
+      alpha {
+        value: 1.0
+      }
+    }
+    accent3 {
+      red: 0.2627451
+      green: 0.2627451
+      blue: 0.2627451
+      alpha {
+        value: 1.0
+      }
+    }
+    dark1 {
+      red: 0.6
+      green: 0.6
+      blue: 0.6
+      alpha {
+        value: 1.0
+      }
+    }
+    dark2 {
+      red: 0.6
+      green: 0.6
+      blue: 0.6
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_1
+    }
+    accent1 {
+      alpha {
+        value: 1.0
+      }
+    }
+    accent2 {
+      alpha {
+        value: 1.0
+      }
+    }
+    accent3 {
+      alpha {
+        value: 1.0
+      }
+    }
+    dark1 {
+      red: 0.4
+      green: 0.4
+      blue: 0.4
+      alpha {
+        value: 1.0
+      }
+    }
+    dark2 {
+      red: 0.4
+      green: 0.4
+      blue: 0.4
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_2
+    }
+    accent1 {
+      red: 0.2627451
+      green: 0.2627451
+      blue: 0.2627451
+      alpha {
+        value: 1.0
+      }
+    }
+    accent2 {
+      red: 0.2627451
+      green: 0.2627451
+      blue: 0.2627451
+      alpha {
+        value: 1.0
+      }
+    }
+    accent3 {
+      red: 0.2627451
+      green: 0.2627451
+      blue: 0.2627451
+      alpha {
+        value: 1.0
+      }
+    }
+    dark1 {
+      red: 0.4
+      green: 0.4
+      blue: 0.4
+      alpha {
+        value: 1.0
+      }
+    }
+    dark2 {
+      red: 0.4
+      green: 0.4
+      blue: 0.4
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+}
+section_component {
+  property_set {
+    key {
+      section_style: REGULAR
+    }
+    background_color {
+      red: 0.9529412
+      green: 0.9529412
+      blue: 0.9529412
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_1
+    }
+    background_color {
+      red: 0.9529412
+      green: 0.9529412
+      blue: 0.9529412
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+  property_set {
+    key {
+      section_style: EMPHASIS_2
+    }
+    background_color {
+      red: 0.8509804
+      green: 0.8509804
+      blue: 0.8509804
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+}
+site_component {
+  property_set {
+    primary_color {
+      alpha {
+        value: 1.0
+      }
+    }
+  }
+}
+text_component {
+  heading_style {
+    heading: 0
+    paragraph_style {
+      line_spacing: 1.25
+      ltr: true
+      spacing_before: 12.0
+    }
+    text_style {
+      bold: false
+      font_size: 12.0
+      foreground {
+        scheme: 0
+      }
+      weighted_font_family: "Arial"
+    }
+  }
+  heading_style {
+    heading: 1
+    paragraph_style {
+      line_spacing: 1.15
+      ltr: true
+      spacing_before: 34.0
+    }
+    text_style {
+      bold: false
+      font_size: 54.0
+      foreground {
+        scheme: 4
+      }
+      weighted_font_family: "Georgia"
+    }
+  }
+  heading_style {
+    heading: 2
+    paragraph_style {
+      line_spacing: 1.25
+      ltr: true
+      spacing_before: 18.0
+    }
+    text_style {
+      bold: false
+      font_size: 24.0
+      foreground {
+        scheme: 5
+      }
+      weighted_font_family: "Georgia"
+    }
+  }
+  heading_style {
+    heading: 3
+    paragraph_style {
+      line_spacing: 1.25
+      ltr: true
+      spacing_before: 14.0
+    }
+    text_style {
+      bold: false
+      font_size: 16.0
+      foreground {
+        scheme: 6
+      }
+      weighted_font_family: "Georgia"
+    }
+  }
+  heading_style {
+    heading: 102
+    paragraph_style {
+      line_spacing: 1.25
+      ltr: true
+      spacing_before: 8.0
+    }
+    text_style {
+      bold: false
+      font_size: 9.0
+      foreground {
+        scheme: 2
+      }
+      weighted_font_family: "Arial"
+    }
+  }
+}
+name: "Customized 1"
+id: "72eb86f0f361ea2f_1"
+spacing_component {
+  property_set {
+    density: COMFORTABLE
+    site_width: DEFAULT
+    frame_selected: false
+  }
+}
+
+----------------------------------------------------
