@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About · Dongjun Wei</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: oklch(98% 0.002 0);
+    --bg2: oklch(95% 0.003 0);
+    --ink: oklch(14% 0.005 0);
+    --ink-mid: oklch(42% 0.004 0);
+    --ink-soft: oklch(62% 0.004 0);
+    --accent: oklch(50% 0.09 42);
+    --accent-light: oklch(95% 0.03 42);
+    --border: oklch(88% 0.003 0);
+    --ff-display: 'Cormorant Garamond', Georgia, serif;
+    --ff-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: oklch(98% 0.002 0 / 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--ff-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+  /* ─── PAGE HEADER ─── */
+  .page-header {
+    padding: 10rem 4rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .page-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.08;
+  }
+  .page-title em { font-style: italic; color: var(--accent); }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  /* ─── LAYOUT ─── */
+  .about-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 4rem 6rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0 5rem;
+    align-items: start;
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    position: sticky;
+    top: 6rem;
+  }
+  .sidebar-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+  .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 0.15rem; }
+  .sidebar-nav a {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .sidebar-nav a:hover, .sidebar-nav a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+
+  /* ─── CONTENT ─── */
+  .about-content { display: flex; flex-direction: column; gap: 5rem; }
+
+  .about-section {}
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .section-heading {
+    font-family: var(--ff-display);
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-heading em { font-style: italic; color: var(--accent); }
+
+  /* Timeline */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .timeline-item.visible { opacity: 1; transform: none; }
+  .timeline-item:last-child { border-bottom: none; }
+
+  .tl-year {
+    font-family: var(--ff-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    padding-top: 0.15rem;
+    line-height: 1.3;
+    text-align: right;
+  }
+
+  .tl-body {}
+  .tl-institution {
+    font-family: var(--ff-display);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .tl-degree {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    margin-bottom: 0.3rem;
+  }
+  .tl-advisor {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .tl-advisor a { color: var(--accent); text-decoration: none; }
+  .tl-advisor a:hover { text-decoration: underline; }
+  .tl-location {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-top: 0.2rem;
+  }
+
+  /* Awards */
+  .awards-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .award-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .award-item.visible { opacity: 1; transform: none; }
+  .award-item:last-child { border-bottom: none; }
+
+  .award-year {
+    font-family: var(--ff-display);
+    font-size: 1rem;
+    color: var(--ink-soft);
+    text-align: right;
+    padding-top: 0.1rem;
+  }
+
+  .award-name {
+    font-size: 0.92rem;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+  }
+  .award-org {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* Industry */
+  .industry-list { list-style: none; display: flex; flex-direction: column; }
+  .industry-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .industry-item.visible { opacity: 1; transform: none; }
+  .industry-item:last-child { border-bottom: none; }
+
+  .ind-period {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-align: right;
+    padding-top: 0.2rem;
+    line-height: 1.5;
+  }
+  .ind-company {
+    font-family: var(--ff-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .ind-location {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: oklch(93% 0.003 0);
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 1.5rem 4rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 800px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .page-header { padding: 7rem 1.5rem 3rem; }
+    .about-page { grid-template-columns: 1fr; padding: 2rem 1.5rem 4rem; }
+    .sidebar { position: static; margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .sidebar-nav { flex-direction: row; flex-wrap: wrap; }
+    .timeline-item, .award-item, .industry-item { grid-template-columns: 1fr; gap: 0.25rem; }
+    .tl-year, .award-year, .ind-period { text-align: left; font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html"><img src="favicon.svg" style="width:22px;height:22px;vertical-align:middle;margin-right:0.5rem;border-radius:50%;" alt="">Dongjun Wei</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="page-eyebrow">Background &amp; Experience</p>
+  <h1 class="page-title">About <em>Me</em></h1>
+  <a class="back-link" href="index.html">← Back to Home</a>
+</div>
+
+<!-- MAIN -->
+<div class="about-page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <p class="sidebar-label">Sections</p>
+    <ul class="sidebar-nav">
+      <li><a href="#education">Education</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#industry">Industry</a></li>
+      <li><a href="#awards">Awards</a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="about-content">
+
+    <!-- EDUCATION -->
+    <div class="about-section" id="education">
+      <p class="section-label">Academic Training</p>
+      <h2 class="section-heading">Education</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="tl-year">2021 – 2025</div>
+          <div class="tl-body">
+            <p class="tl-institution">The University of Hong Kong</p>
+            <p class="tl-degree">Ph.D. in Information Systems, Faculty of Business and Economics</p>
+            <p class="tl-advisor">Advisor: <a href="https://pweb.fbe.hku.hk/~mchau/people.html" target="_blank">Michael Chau</a> · Co-advisor: <a href="https://lionelyashiro.github.io" target="_blank">Zhepeng Li</a></p>
+            <p class="tl-location">Hong Kong SAR, China</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-year">Dec 2023 – Dec 2024</div>
+          <div class="tl-body">
+            <p class="tl-institution">University of Delaware</p>
+            <p class="tl-degree">Visiting Scholar, Alfred Lerner College of Business &amp; Economics</p>
+            <p class="tl-advisor">Advisor: <a href="http://www.dalab.info/team" target="_blank">Xiao Fang</a></p>
+            <p class="tl-location">Newark, DE, USA</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-year">2018 – 2021</div>
+          <div class="tl-body">
+            <p class="tl-institution">University of Chinese Academy of Sciences</p>
+            <p class="tl-degree">M.Eng. in Computer Science, Institute of Information Engineering, CAS</p>
+            <p class="tl-location">Beijing, China</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-year">2014 – 2018</div>
+          <div class="tl-body">
+            <p class="tl-institution">Northwest University</p>
+            <p class="tl-degree">B.Sc. in Computational Mathematics</p>
+            <p class="tl-location">Xi'an, China</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TEACHING -->
+    <div class="about-section" id="teaching">
+      <p class="section-label">Classroom</p>
+      <h2 class="section-heading"><em>Teaching</em></h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="tl-year">2021, 2022, 2024</div>
+          <div class="tl-body">
+            <p class="tl-institution">MSBA 7026 · Big Data Analytics on the Cloud</p>
+            <p class="tl-degree">Teaching Assistant</p>
+            <p class="tl-location">The University of Hong Kong</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-year">2025</div>
+          <div class="tl-body">
+            <p class="tl-institution">IIMT 6019 · Machine Learning and Predictive Modeling in Business Research</p>
+            <p class="tl-degree">Guest Lecture</p>
+            <p class="tl-location">The University of Hong Kong</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- INDUSTRY -->
+    <div class="about-section" id="industry">
+      <p class="section-label">Professional</p>
+      <h2 class="section-heading">Industry <em>Experience</em></h2>
+      <ul class="industry-list">
+
+        <li class="industry-item">
+          <div class="ind-period">Nov 2018 – Dec 2018</div>
+          <div>
+            <p class="ind-company">NetEase Corporation <span style="font-size:0.75rem; font-family:var(--ff-body); color:var(--ink-soft);">(NASDAQ: NTES)</span></p>
+            <p class="ind-location">Beijing, China</p>
+          </div>
+        </li>
+
+        <li class="industry-item">
+          <div class="ind-period">Nov 2025 – present</div>
+          <div>
+            <p class="ind-company">Renji Hospital</p>
+            <p class="ind-location">Shanghai, China</p>
+          </div>
+        </li>
+
+        <li class="industry-item">
+          <div class="ind-period">Mar 2026 – present</div>
+          <div>
+            <p class="ind-company">OpluxCare</p>
+            <p class="ind-location">Wuhan, China</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- AWARDS -->
+    <div class="about-section" id="awards">
+      <p class="section-label">Recognition</p>
+      <h2 class="section-heading">Awards &amp; <em>Honours</em></h2>
+      <ul class="awards-list">
+
+        <li class="award-item">
+          <div class="award-year">2025</div>
+          <div>
+            <p class="award-name">AIS SIG AI Dissertation Award</p>
+            <p class="award-org">Association for Information Systems</p>
+          </div>
+        </li>
+
+        <li class="award-item">
+          <div class="award-year">2025</div>
+          <div>
+            <p class="award-name">Dissertation Year Fellowship</p>
+            <p class="award-org">The University of Hong Kong</p>
+          </div>
+        </li>
+
+        <li class="award-item">
+          <div class="award-year">2025</div>
+          <div>
+            <p class="award-name">FBE PhD Research Excellence Award</p>
+            <p class="award-org">The University of Hong Kong</p>
+          </div>
+        </li>
+
+        <li class="award-item">
+          <div class="award-year">2021 – 2024</div>
+          <div>
+            <p class="award-name">Postgraduate Student Scholarship</p>
+            <p class="award-org">The University of Hong Kong</p>
+          </div>
+        </li>
+
+        <li class="award-item">
+          <div class="award-year">2021</div>
+          <div>
+            <p class="award-name">FBE PhD Entrance Scholarship</p>
+            <p class="award-org">The University of Hong Kong</p>
+          </div>
+        </li>
+
+        <li class="award-item">
+          <div class="award-year">2019</div>
+          <div>
+            <p class="award-name">Excellent Students Award</p>
+            <p class="award-org">University of Chinese Academy of Sciences</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+  </div><!-- /about-content -->
+</div><!-- /about-page -->
+
+<footer>
+  <p>© 2026 Dongjun Wei · All rights reserved</p>
+</footer>
+
+<script>
+  // Scroll-triggered animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.timeline-item, .award-item, .industry-item').forEach(el => observer.observe(el));
+
+  // Sidebar active link on scroll
+  const sections = document.querySelectorAll('.about-section');
+  const sideLinks = document.querySelectorAll('.sidebar-nav a');
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        sideLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => sectionObserver.observe(s));
+</script>
+</body>
+</html>

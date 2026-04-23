@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Publications · Dongjun Wei</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: oklch(98% 0.002 0);
+    --bg2: oklch(95% 0.003 0);
+    --ink: oklch(14% 0.005 0);
+    --ink-mid: oklch(42% 0.004 0);
+    --ink-soft: oklch(62% 0.004 0);
+    --accent: oklch(50% 0.09 42);
+    --accent-light: oklch(95% 0.03 42);
+    --border: oklch(88% 0.003 0);
+    --ff-display: 'Cormorant Garamond', Georgia, serif;
+    --ff-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: oklch(98% 0.002 0 / 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--ff-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+  /* ─── PAGE HEADER ─── */
+  .page-header {
+    padding: 10rem 4rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+
+  .page-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .page-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--ink);
+  }
+
+  .page-title em { font-style: italic; color: var(--accent); }
+
+  /* ─── MAIN LAYOUT ─── */
+  .pub-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4rem 6rem;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0 5rem;
+    align-items: start;
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    position: sticky;
+    top: 6rem;
+    padding-top: 4rem;
+  }
+
+  .sidebar-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .sidebar-nav a {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-left: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .sidebar-nav a:hover,
+  .sidebar-nav a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+
+  /* ─── CONTENT ─── */
+  .pub-content { padding-top: 4rem; }
+
+  .pub-group { margin-bottom: 4rem; }
+
+  .pub-group-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pub-group-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .pub-count {
+    font-size: 0.7rem;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 0.15rem 0.5rem;
+    border-radius: 100px;
+  }
+
+  .pub-list { list-style: none; }
+
+  .pub-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .pub-item.visible { opacity: 1; transform: none; }
+  .pub-item:last-child { border-bottom: none; }
+
+  .pub-venue-badge { text-align: center; padding-top: 0.2rem; }
+
+  .venue-name {
+    font-family: var(--ff-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+    line-height: 1;
+  }
+
+  .venue-year {
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+
+  .venue-status {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.4rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 2px;
+    margin-top: 0.25rem;
+  }
+
+  .pub-title {
+    font-family: var(--ff-display);
+    font-size: 1.12rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .pub-authors {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    margin-bottom: 0.35rem;
+  }
+
+  .pub-authors strong { color: var(--ink); font-weight: 500; }
+
+  .pub-note {
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-bottom: 0.6rem;
+  }
+
+  .pub-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .kw {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.6rem;
+    background: var(--bg2);
+    color: var(--ink-soft);
+    border-radius: 2px;
+  }
+
+  .pub-link {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .pub-link:hover { opacity: 0.7; }
+
+  /* ─── BACK LINK ─── */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: oklch(93% 0.003 0);
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 1.5rem 4rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 800px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .page-header { padding: 7rem 1.5rem 3rem; }
+    .pub-page { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; }
+    .sidebar { position: static; padding-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .sidebar-nav { flex-direction: row; flex-wrap: wrap; }
+    .pub-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .pub-venue-badge { text-align: left; display: flex; gap: 0.5rem; align-items: baseline; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html"><img src="favicon.svg" style="width:22px;height:22px;vertical-align:middle;margin-right:0.5rem;border-radius:50%;" alt="">Dongjun Wei</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="page-eyebrow">Research Output</p>
+  <h1 class="page-title">All <em>Publications</em></h1>
+  <a class="back-link" href="index.html">← Back to Home</a>
+</div>
+
+<!-- MAIN -->
+<div class="pub-page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <p class="sidebar-label">Jump to</p>
+    <ul class="sidebar-nav">
+      <li><a href="#working-papers">Working Papers</a></li>
+      <li><a href="#published-2025">2021 – Present</a></li>
+      <li><a href="#published-older">Before 2021</a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="pub-content">
+
+    <!-- WORKING PAPERS -->
+    <div class="pub-group" id="working-papers">
+      <div class="pub-group-header">
+        <span class="pub-group-title">Working Papers</span>
+        <span class="pub-count">1</span>
+      </div>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-venue-badge">
+            <span class="venue-name">MISQ</span>
+            <span class="venue-status">R&amp;R</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">A General Method for Detecting Information Generated by Large Language Models</p>
+            <p class="pub-authors">Minjia Mao, <strong>Dongjun Wei</strong>, Xiao Fang, and Michael Chau</p>
+            <p class="pub-note">Under Major Revision at MIS Quarterly</p>
+            <div class="pub-keywords">
+              <span class="kw">AI Safety</span>
+              <span class="kw">Large Language Model</span>
+              <span class="kw">Detection</span>
+            </div>
+            <a class="pub-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5309665" target="_blank">Article Link →</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PUBLISHED 2025 -->
+    <div class="pub-group" id="published-2025">
+      <div class="pub-group-header">
+        <span class="pub-group-title">Published · 2021 – Present</span>
+        <span class="pub-count">3</span>
+      </div>
+      <ul class="pub-list">
+
+        <li class="pub-item">
+          <div class="pub-venue-badge">
+            <span class="venue-name">MISQ</span>
+            <span class="venue-year">2025</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">Mitigating Bias in Hate Speech Detection with a Small Number of Expert Annotations: A Prompt-based Learning Approach</p>
+            <p class="pub-authors"><strong>Dongjun Wei</strong>, Michael Chau, and Zhepeng (Lionel) Li</p>
+            <div class="pub-keywords">
+              <span class="kw">AI Fairness</span>
+              <span class="kw">Large Language Model</span>
+              <span class="kw">Hate Speech Detection</span>
+            </div>
+            <a class="pub-link" href="https://doi.org/10.25300/MISQ/2025/18416" target="_blank">Article Link →</a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-venue-badge">
+            <span class="venue-name">ACL</span>
+            <span class="venue-year">2025</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">Watermarking Low-entropy Generation for Large Language Models: An Unbiased and Low-risk Method</p>
+            <p class="pub-authors">Minjia Mao, <strong>Dongjun Wei</strong>, Zeyu Chen, Xiao Fang, and Michael Chau</p>
+            <div class="pub-keywords">
+              <span class="kw">AI Safety</span>
+              <span class="kw">Large Language Model</span>
+              <span class="kw">Watermark</span>
+            </div>
+            <a class="pub-link" href="https://arxiv.org/pdf/2405.14604" target="_blank">Article Link →</a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-venue-badge">
+            <span class="venue-name">COLM</span>
+            <span class="venue-year">2025</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">Short-PHD: Detecting Short LLM-generated Text with Topological Data Analysis After Off-topic Content Insertion</p>
+            <p class="pub-authors"><strong>Dongjun Wei</strong>, Minjia Mao, Xiao Fang, and Michael Chau</p>
+            <div class="pub-keywords">
+              <span class="kw">AI Safety</span>
+              <span class="kw">Large Language Model</span>
+              <span class="kw">Topological Data Analysis</span>
+            </div>
+            <a class="pub-link" href="https://arxiv.org/pdf/2504.02873" target="_blank">Article Link →</a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- PUBLISHED OLDER -->
+    <div class="pub-group" id="published-older">
+      <div class="pub-group-header">
+        <span class="pub-group-title">Published · Before 2021</span>
+        <span class="pub-count">3</span>
+      </div>
+      <ul class="pub-list">
+
+        <li class="pub-item">
+          <div class="pub-venue-badge">
+            <span class="venue-name">PAKDD</span>
+            <span class="venue-year">2020</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">AutoSUM: Automating Feature Extraction and Multi-user Preference Simulation for Entity Summarization</p>
+            <p class="pub-authors"><strong>Dongjun Wei</strong>, Yaxin Liu, Fuqing Zhu, Liangjun Zang, Wei Zhou, Yijun Lu, and Songlin Hu</p>
+            <div class="pub-keywords">
+              <span class="kw">Data Mining</span>
+              <span class="kw">Knowledge Graph</span>
+              <span class="kw">Alibaba Cloud</span>
+            </div>
+            <a class="pub-link" href="https://link.springer.com/chapter/10.1007/978-3-030-47436-2_44" target="_blank">Article Link →</a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-venue-badge">
+            <span class="venue-name">CIKM</span>
+            <span class="venue-year">2019</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">ESA: Entity Summarization with Attention</p>
+            <p class="pub-authors"><strong>Dongjun Wei</strong>, Yaxin Liu, Fuqing Zhu, Liangjun Zang, Wei Zhou, Jizhong Han, and Songlin Hu</p>
+            <div class="pub-keywords">
+              <span class="kw">Data Mining</span>
+              <span class="kw">Knowledge Graph</span>
+            </div>
+            <a class="pub-link" href="http://www.scopus.com/inward/record.url?eid=2-s2.0-85072722358" target="_blank">Article Link →</a>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-venue-badge">
+            <span class="venue-name">CIKM</span>
+            <span class="venue-year">2018</span>
+          </div>
+          <div class="pub-body">
+            <p class="pub-title">MPSUM: Entity Summarization with Predicate-based Matching</p>
+            <p class="pub-authors"><strong>Dongjun Wei</strong>, Shiyuan Gao, Yaxin Liu, Zhibing Liu, and Longtao Huang</p>
+            <div class="pub-keywords">
+              <span class="kw">Data Mining</span>
+              <span class="kw">Knowledge Graph</span>
+            </div>
+            <a class="pub-link" href="https://arxiv.org/pdf/2005.11992" target="_blank">Article Link →</a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+  </div><!-- /pub-content -->
+</div><!-- /pub-page -->
+
+<footer>
+  <p>© 2026 Dongjun Wei · All rights reserved</p>
+</footer>
+
+<script>
+  // Scroll-triggered fade-ins
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.pub-item').forEach(el => observer.observe(el));
+
+  // Sticky sidebar active link
+  const sections = document.querySelectorAll('.pub-group');
+  const sideLinks = document.querySelectorAll('.sidebar-nav a');
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        sideLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => sectionObserver.observe(s));
+</script>
+</body>
+</html>
