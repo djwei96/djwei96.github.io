@@ -500,24 +500,77 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 800px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.5rem; }
-
-    #home {
-      grid-template-columns: 1fr;
-      padding: 7rem 1.5rem 4rem;
-      gap: 3rem;
+    /* NAV */
+    nav {
+      padding: 0.9rem 1.25rem;
+      gap: 0.75rem;
     }
-    .hero-visual { order: -1; }
-    .photo-frame { width: 200px; height: 240px; }
+    .nav-logo { font-size: 1.05rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.7rem; letter-spacing: 0.08em; }
 
-    section { padding: 4rem 1.5rem; }
+    /* HERO */
+    #home {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 5.5rem 1.25rem 3rem;
+      gap: 2rem;
+      min-height: auto;
+    }
+    .hero-text { max-width: 100%; }
+    .hero-name { font-size: clamp(2.8rem, 11vw, 4rem); }
+    .hero-affil { font-size: 1rem; margin-bottom: 1.25rem; }
+    .hero-bio { font-size: 0.9rem; margin-bottom: 1.75rem; }
+    .hero-visual {
+      order: -1;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1.25rem;
+      width: 100%;
+    }
+    .photo-frame { width: 110px; height: 135px; flex-shrink: 0; }
+    .research-tags { max-width: none; }
+    .tag { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
+    .hero-links { gap: 0.5rem; }
+    .hero-links-row { gap: 0.5rem; }
+    .icon-link { font-size: 0.72rem; padding: 0.45rem 0.8rem; }
+
+    /* SECTIONS */
+    section { padding: 3rem 1.25rem; }
     #publications > .inner,
-    #contact > .inner { padding: 4rem 1.5rem; }
+    #contact > .inner { padding: 3rem 1.25rem; }
+    .section-title { font-size: 1.75rem; margin-bottom: 2rem; }
 
-    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .pub-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    .pub-venue-badge { width: auto; text-align: left; display: flex; gap: 0.5rem; align-items: baseline; }
+    /* PUBLICATIONS */
+    .pub-item {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      padding: 1.25rem 0;
+    }
+    .pub-venue-badge {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      width: auto;
+      text-align: left;
+    }
+    .venue-name { font-size: 0.9rem; }
+    .pub-title { font-size: 0.98rem; }
+    .pub-authors { font-size: 0.78rem; }
+
+    /* CONTACT */
+    .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .contact-row { font-size: 0.82rem; }
+
+    /* FOOTER */
+    footer { padding: 1.25rem; font-size: 0.7rem; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links { gap: 0.6rem; }
+    .nav-links a { font-size: 0.65rem; }
+    .hero-visual { flex-direction: column; }
+    .photo-frame { width: 140px; height: 170px; }
   }
 </style>
 </head>
