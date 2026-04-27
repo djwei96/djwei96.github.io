@@ -24,7 +24,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
   body {
     background: var(--bg);
     color: var(--ink);
@@ -309,8 +309,9 @@
     .sidebar { position: static; padding-top: 1.5rem; display: flex; flex-direction: row; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
     .sidebar-label { display: none; }
     .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 0.4rem; }
-    .sidebar-nav a { border-left: none; border: 1px solid var(--border); border-radius: 2px; padding: 0.3rem 0.65rem; font-size: 0.72rem; }
-    .sidebar-nav a.active { border-color: var(--accent); background: var(--accent-light); }
+    .sidebar-nav a { border-left: none; border: 1px solid var(--border); border-radius: 2px; padding: 0.3rem 0.65rem; font-size: 0.72rem; transition: border-color 0.2s, color 0.2s; }
+    .sidebar-nav a:hover { border-color: var(--accent) !important; color: var(--accent); }
+    .sidebar-nav a.active { border-color: var(--border); background: none; }
 
     .about-content { gap: 3rem; padding-top: 1.5rem; }
     .section-heading { font-size: 1.6rem; margin-bottom: 1.5rem; }
@@ -699,17 +700,8 @@
   const sections = document.querySelectorAll('.about-section');
   const sideLinks = document.querySelectorAll('.sidebar-nav a');
 
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        sideLinks.forEach(l => l.classList.remove('active'));
-        const link = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
-        if (link) link.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-30% 0px -60% 0px' });
+  // Update active on scroll
 
-  sections.forEach(s => sectionObserver.observe(s));
 
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
