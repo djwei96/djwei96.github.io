@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>About · Dongjun Wei</title>
+<meta name="description" content="About Dongjun Wei \u2014 education, teaching, industry experience, and awards." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +26,9 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  a { color: var(--accent); }
+  a:hover { color: oklch(40% 0.1 42); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 1px; }
   body {
     background: var(--bg);
     color: var(--ink);
@@ -141,7 +145,7 @@
   }
 
   /* ─── CONTENT ─── */
-  .about-content { display: flex; flex-direction: column; gap: 5rem; }
+  .about-content { display: flex; flex-direction: column; gap: 3rem; }
 
   .about-section {}
   .section-label {
@@ -155,7 +159,7 @@
     font-family: var(--ff-display);
     font-size: 2rem;
     font-weight: 300;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2em;
     padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--border);
   }
@@ -428,7 +432,8 @@
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    padding: 4px;
+    padding: 11px;
+    margin: -11px;
     background: none;
     border: none;
     z-index: 200;
@@ -502,6 +507,7 @@
   <aside class="sidebar">
     <p class="sidebar-label">Sections</p>
     <ul class="sidebar-nav">
+      <li><a href="#appointments">Appointments</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#teaching">Teaching</a></li>
       <li><a href="#industry">Industry</a></li>
@@ -512,9 +518,25 @@
   <!-- CONTENT -->
   <div class="about-content">
 
+    <!-- APPOINTMENTS -->
+    <div class="about-section" id="appointments">
+      <h2 class="section-heading">Appointments</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="tl-year">Fall 2026 – present</div>
+          <div class="tl-body">
+            <p class="tl-institution">ESCP Business School</p>
+            <p class="tl-degree">Assistant Professor</p>
+            <p class="tl-location">Paris, France</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- EDUCATION -->
     <div class="about-section" id="education">
-      <p class="section-label">Academic Training</p>
       <h2 class="section-heading">Education</h2>
       <div class="timeline">
 
@@ -561,7 +583,6 @@
 
     <!-- TEACHING -->
     <div class="about-section" id="teaching">
-      <p class="section-label">Classroom</p>
       <h2 class="section-heading"><em>Teaching</em></h2>
       <div class="timeline">
 
@@ -588,7 +609,6 @@
 
     <!-- INDUSTRY -->
     <div class="about-section" id="industry">
-      <p class="section-label">Professional</p>
       <h2 class="section-heading">Industry <em>Experience</em></h2>
       <ul class="industry-list">
 
@@ -621,9 +641,16 @@
 
     <!-- AWARDS -->
     <div class="about-section" id="awards">
-      <p class="section-label">Recognition</p>
       <h2 class="section-heading">Awards &amp; <em>Honours</em></h2>
       <ul class="awards-list">
+
+        <li class="award-item">
+          <div class="award-year">2026</div>
+          <div>
+            <p class="award-name">HKU Foundation Publication Award for Research Postgraduate Students</p>
+            <p class="award-org">The University of Hong Kong</p>
+          </div>
+        </li>
 
         <li class="award-item">
           <div class="award-year">2025</div>
