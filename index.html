@@ -5,950 +5,298 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dongjun Wei</title>
 <meta name="description" content="Dongjun Wei — Assistant Professor at ESCP Business School. Research on generative AI, LLMs, trustworthy AI, healthcare, and data mining." />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dongjun Wei" />
+<meta property="og:description" content="Assistant Professor at ESCP Business School. Research on generative AI, LLMs, trustworthy AI, healthcare, and data mining." />
+<meta property="og:image" content="assets/dongjun-wei.jpg" />
+<meta name="author" content="Dongjun Wei" />
+<meta name="theme-color" content="#f7f4ef" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet" />
 <style>
-  :root {
-    --bg: oklch(98% 0.002 0);
-    --bg2: oklch(95% 0.003 0);
-    --ink: oklch(14% 0.005 0);
-    --ink-mid: oklch(42% 0.004 0);
-    --ink-soft: oklch(62% 0.004 0);
-    --accent: oklch(50% 0.09 42);
-    --accent-light: oklch(95% 0.03 42);
-    --border: oklch(88% 0.003 0);
-    --ff-display: 'Cormorant Garamond', Georgia, serif;
-    --ff-body: 'DM Sans', system-ui, sans-serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  a { color: var(--accent); }
-  a:hover { color: oklch(40% 0.1 42); }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 1px; }
-
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--ff-body);
-    font-size: 16px;
-    line-height: 1.7;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 4rem;
-    background: oklch(98% 0.002 0 / 0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: var(--ff-display);
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    color: var(--ink);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-mid);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--accent); }
-
-  /* ─── HERO ─── */
-  #home {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 8rem 4rem 5rem;
-    gap: 3rem;
-  }
-
-  .hero-text { animation: fadeUp 0.9s ease both; max-width: 520px; flex-shrink: 0; }
-  .hero-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-
-  .hero-name {
-    font-family: var(--ff-display);
-    font-size: clamp(3.5rem, 6vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.25rem;
-  }
-
-  .hero-name em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-affil {
-    font-family: var(--ff-display);
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: var(--ink-mid);
-    margin-bottom: 2rem;
-    font-style: italic;
-  }
-
-  .hero-bio {
-    font-size: 0.975rem;
-    color: var(--ink-mid);
-    line-height: 1.8;
-    max-width: 520px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-bio strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  .hero-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    align-items: flex-start;
-  }
-
-  .hero-links-row {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  .icon-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    color: var(--ink-mid);
-    text-decoration: none;
-    padding: 0.55rem 1.1rem;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    transition: all 0.2s;
-    background: white;
-  }
-
-  .icon-link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-light);
-  }
-
-  .icon-link svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-  .hero-visual {
-    animation: fadeUp 0.9s 0.2s ease both;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-    padding-top: 1rem;
-  }
-
-  .photo-frame {
-    width: 260px;
-    height: 320px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-  }
-
-  .photo-frame img {
-    width: 115%;
-    height: 115%;
-    margin-left: -7.5%;
-    margin-top: -2%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    filter: brightness(1.03);
-  }
-
-  /* accent frame decoration */
-  .photo-frame::after {
-    content: '';
-    position: absolute;
-    top: -6px; left: -6px;
-    width: 60px; height: 60px;
-    border-top: 2px solid var(--accent);
-    border-left: 2px solid var(--accent);
-    pointer-events: none;
-  }
-
-  .research-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: flex-start;
-    max-width: 280px;
-  }
-
-  .tag {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    padding: 0.3rem 0.75rem;
-    background: var(--accent-light);
-    color: var(--accent);
-    border-radius: 100px;
-    white-space: nowrap;
-  }
-
-  /* ─── NEWS STRIP ─── */
-  .news-strip {
-    background: oklch(22% 0.005 0);
-    color: oklch(88% 0.003 0);
-    padding: 1rem 4rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.04em;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .news-strip .label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: oklch(72% 0.005 42);
-    white-space: nowrap;
-    font-weight: 500;
-  }
-
-  /* ─── SECTION SHARED ─── */
-  section {
-    padding: 6rem 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 400;
-    margin-bottom: 0.75rem;
-  }
-
-  .section-title {
-    font-family: var(--ff-display);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 3.5rem;
-    color: var(--ink);
-  }
-
-  .section-title em { font-style: italic; color: var(--accent); }
-
-  /* ─── PUBLICATIONS ─── */
-  #publications { background: white; max-width: 100%; border-top: 1px solid var(--border); }
-  #publications > .inner { max-width: 1200px; margin: 0 auto; padding: 6rem 4rem; }
-
-  .pub-group-title {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .pub-list { list-style: none; margin-bottom: 3.5rem; }
-
-  .pub-item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0 2rem;
-    padding: 1.75rem 0;
-    border-bottom: 1px solid var(--border);
-    align-items: start;
-    transition: background 0.15s;
-  }
-
-  .pub-item:last-child { border-bottom: none; }
-
-  .pub-venue-badge {
-    width: 72px;
-    text-align: center;
-    padding: 0.3rem 0;
-    flex-shrink: 0;
-  }
-
-  .venue-name {
-    font-family: var(--ff-display);
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--ink);
-    display: block;
-    line-height: 1;
-  }
-
-  .venue-year {
-    font-size: 0.7rem;
-    color: var(--ink-soft);
-    letter-spacing: 0.05em;
-  }
-
-  .pub-body {}
-
-  .pub-title {
-    font-family: var(--ff-display);
-    font-size: 1.1rem;
-    font-weight: 400;
-    line-height: 1.4;
-    margin-bottom: 0.4rem;
-    color: var(--ink);
-  }
-
-  .pub-authors {
-    font-size: 0.82rem;
-    color: var(--ink-mid);
-    margin-bottom: 0.6rem;
-  }
-
-  .pub-authors strong { color: var(--ink); font-weight: 500; }
-
-  .pub-keywords {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .kw {
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    padding: 0.2rem 0.6rem;
-    background: var(--bg2);
-    color: var(--ink-soft);
-    border-radius: 2px;
-  }
-
-  .pub-link {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    transition: opacity 0.2s;
-  }
-
-  .pub-link:hover { opacity: 0.7; }
-
-  .view-all-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    text-decoration: none;
-    padding: 0.75rem 2rem;
-    border: 1px solid var(--accent);
-    border-radius: 2px;
-    transition: all 0.2s;
-  }
-  .view-all-btn:hover {
-    background: var(--accent);
-    color: white;
-  }
-
-  /* ─── CONTACT ─── */
-  #contact { background: oklch(97% 0.01 42); max-width: 100%; border-top: 1px solid oklch(92% 0.015 42); }
-  #contact > .inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 6rem 4rem;
-    color: var(--ink);
-  }
-
-  #contact .section-label { color: var(--accent); }
-  #contact .section-title { color: var(--ink); margin-bottom: 2.5rem; font-weight: 400; }
-  #contact .section-title em { color: var(--accent); }
-  #contact .contact-info p { color: var(--ink-mid); }
-  #contact .contact-row { color: var(--ink-mid); }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .contact-info p {
-    font-size: 0.9rem;
-    color: var(--ink-mid);
-    line-height: 1.9;
-    margin-bottom: 2rem;
-  }
-
-  .contact-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-  }
-
-  .contact-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.875rem;
-    color: var(--ink-mid);
-  }
-
-  .contact-row svg { width: 14px; height: 14px; color: var(--accent); flex-shrink: 0; }
-  .contact-row a { color: inherit; text-decoration: none; }
-  .contact-row a:hover { color: var(--ink); }
-
-  .position-card {
-    background: oklch(28% 0.004 0);
-    border: 1px solid oklch(34% 0.004 0);
-    padding: 2rem;
-    border-left: 3px solid var(--accent);
-  }
-
-  .position-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
-  }
-
-  .position-title {
-    font-family: var(--ff-display);
-    font-size: 1.4rem;
-    font-weight: 300;
-    color: var(--ink);
-  }
-
-  .position-inst {
-    font-size: 0.85rem;
-    color: oklch(65% 0.003 0);
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: oklch(93% 0.003 0);
-    color: var(--ink-soft);
-    text-align: center;
-    padding: 1.5rem 4rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    border-top: 1px solid var(--border);
-  }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-in.visible { opacity: 1; transform: none; }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 800px) {
-    /* NAV */
-    nav {
-      padding: 0.9rem 1.25rem;
-      gap: 0.75rem;
-    }
-    .nav-logo { font-size: 1.05rem; }
-    .nav-links { gap: 1rem; }
-    .nav-links a { font-size: 0.7rem; letter-spacing: 0.08em; }
-
-    /* HERO */
-    #home {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 5.5rem 1.25rem 3rem;
-      gap: 2rem;
-      min-height: auto;
-    }
-    .hero-text { max-width: 100%; }
-    .hero-name { font-size: clamp(2.8rem, 11vw, 4rem); }
-    .hero-affil { font-size: 1rem; margin-bottom: 1.25rem; }
-    .hero-bio { font-size: 0.9rem; margin-bottom: 1.75rem; }
-    .hero-visual {
-      order: -1;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 1.25rem;
-      width: 100%;
-    }
-    .photo-frame { width: 110px; height: 135px; flex-shrink: 0; }
-    .research-tags { max-width: none; }
-    .tag { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
-    .hero-links { gap: 0.5rem; }
-    .hero-links-row { gap: 0.5rem; }
-    .icon-link { font-size: 0.72rem; padding: 0.45rem 0.8rem; }
-
-    /* SECTIONS */
-    section { padding: 3rem 1.25rem; }
-    #publications > .inner,
-    #contact > .inner { padding: 3rem 1.25rem; }
-    .section-title { font-size: 1.75rem; margin-bottom: 2rem; }
-
-    /* PUBLICATIONS */
-    .pub-item {
-      grid-template-columns: 1fr;
-      gap: 0.4rem;
-      padding: 1.25rem 0;
-    }
-    .pub-venue-badge {
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-      width: auto;
-      text-align: left;
-    }
-    .venue-name { font-size: 0.9rem; }
-    .pub-title { font-size: 0.98rem; }
-    .pub-authors { font-size: 0.78rem; }
-
-    /* CONTACT */
-    .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .contact-row { font-size: 0.82rem; flex-wrap: wrap; }
-    .contact-row a { word-break: break-all; }
-
-    /* FOOTER */
-    footer { padding: 1.25rem; font-size: 0.7rem; }
-  }
-
-  @media (max-width: 480px) {
-    .nav-links { gap: 0.6rem; }
-    .nav-links a { font-size: 0.65rem; }
-    .hero-visual { flex-direction: column; }
-    .photo-frame { width: 140px; height: 170px; }
-  }
-
-  /* ─── MOBILE DRAWER MENU ─── */
-  .nav-mobile-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-  }
-  .nav-mobile-overlay.open { display: flex; }
-
-  .overlay-backdrop {
-    position: absolute;
-    inset: 0;
-    background: oklch(10% 0.005 0 / 0);
-    transition: background 0.35s ease;
-    cursor: pointer;
-  }
-  .nav-mobile-overlay.open .overlay-backdrop {
-    background: oklch(10% 0.005 0 / 0.45);
-  }
-
-  .overlay-drawer {
-    position: absolute;
-    top: 0; right: 0; bottom: 0;
-    width: 72%;
-    max-width: 300px;
-    background: var(--bg);
-    display: flex;
-    flex-direction: column;
-    padding: 5rem 2.5rem 3rem;
-    transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    border-left: 1px solid var(--border);
-    box-shadow: -8px 0 32px oklch(0% 0 0 / 0.08);
-  }
-  .nav-mobile-overlay.open .overlay-drawer {
-    transform: translateX(0);
-  }
-
-  .overlay-close {
-    position: absolute;
-    top: 1.3rem;
-    right: 1.3rem;
-    width: 34px;
-    height: 34px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .overlay-close span {
-    position: absolute;
-    width: 18px;
-    height: 1.5px;
-    background: var(--ink);
-  }
-  .overlay-close span:nth-child(1) { transform: rotate(45deg); }
-  .overlay-close span:nth-child(2) { transform: rotate(-45deg); }
-
-  .overlay-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-  .overlay-nav a {
-    font-family: var(--ff-display);
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    padding: 0.65rem 0;
-    transition: color 0.2s, padding-left 0.2s;
-    display: block;
-  }
-  .overlay-nav a:hover { color: var(--accent); padding-left: 0.5rem; }
-
-  .overlay-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.6rem;
-    margin-top: auto;
-    padding-top: 2rem;
-  }
-  .overlay-footer span {
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: var(--ink-soft);
-  }
-
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 11px;
-    margin: -11px;
-    background: none;
-    border: none;
-    z-index: 200;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 22px;
-    height: 1.5px;
-    background: var(--ink);
-    transition: all 0.3s ease;
-    transform-origin: center;
-  }
-  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-  @media (max-width: 800px) {
-    .nav-hamburger { display: flex; }
-    .nav-links { display: none; }
-  }
+:root{
+  --bg:oklch(97.5% 0.007 75);
+  --surface:oklch(94% 0.01 70);
+  --ink:oklch(17% 0.012 50);
+  --ink-mid:oklch(40% 0.008 50);
+  --ink-soft:oklch(56% 0.008 55);
+  --accent:oklch(53% 0.13 40);
+  --accent-dark:oklch(44% 0.13 38);
+  --accent-light:oklch(93% 0.035 45);
+  --border:oklch(88% 0.01 60);
+  --ff:'Hanken Grotesk',system-ui,sans-serif;
+  --ff-serif:'Literata',Georgia,serif;
+  --fs-2xs:0.75rem;
+  --fs-xs:0.8125rem;
+  --fs-sm:0.875rem;
+  --fs-base:1rem;
+  --fs-md:1.0625rem;
+  --fs-lg:1.1875rem;
+  --fs-xl:1.5rem;
+  --fs-2xl:clamp(1.875rem,3.2vw,2.375rem);
+  --fs-3xl:clamp(2.25rem,4.2vw,3rem);
+  --fs-4xl:clamp(2.75rem,5.2vw,4rem);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+body{background:var(--bg);color:var(--ink);font-family:var(--ff);font-size:var(--fs-base);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;font-optical-sizing:auto;font-kerning:normal;text-rendering:optimizeLegibility}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:oklch(98% 0.002 0 / 0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:var(--fs-md);font-weight:500;letter-spacing:-0.01em;color:var(--ink);white-space:nowrap;display:flex;align-items:center}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+#home{display:flex;align-items:flex-start;justify-content:center;max-width:1120px;margin:0 auto;padding:9.5rem 4rem 5rem;gap:6rem}
+.hero-text{max-width:560px;flex-shrink:0}
+.hero-eyebrow{font-size:var(--fs-2xs);font-weight:600;letter-spacing:0.085em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.4rem}
+.hero-name{font-family:var(--ff-serif);font-size:var(--fs-4xl);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:2rem;color:var(--ink)}
+.hero-name em{font-style:italic;color:var(--accent);font-weight:inherit}
+.hero-affil{font-size:1.05rem;font-weight:500;color:var(--ink-mid);margin-bottom:1.75rem}
+.hero-bio{font-size:var(--fs-md);color:var(--ink-mid);line-height:1.7;max-width:31em;margin-bottom:2.25rem}
+.hero-bio strong{color:var(--ink);font-weight:600}
+.hero-links{display:flex;flex-direction:column;gap:0.7rem;align-items:flex-start}
+.hero-links-row{display:flex;gap:0.6rem;flex-wrap:wrap}
+.icon-link{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);padding:0.65rem 1.25rem;border-radius:999px;transition:all 0.15s;background:var(--bg);border:1px solid var(--border)}
+.icon-link:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
+.icon-link:hover svg{color:var(--accent-dark)}
+.icon-link svg{width:15px;height:15px;flex-shrink:0}
+.hero-visual{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:1.75rem}
+.photo-frame{width:250px;height:308px;position:relative;overflow:hidden;border-radius:14px;margin-top:0.4rem}
+.photo-frame img{width:115%;height:115%;margin-left:-7.5%;margin-top:-2%;object-fit:cover;object-position:center top;display:block}
+.research-tags{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:flex-start;width:250px}
+.tag{font-size:var(--fs-xs);font-weight:500;padding:0.35rem 0.8rem;background:var(--surface);color:var(--ink-mid);border-radius:999px;white-space:nowrap}
+section{padding:7rem 4rem;max-width:1180px;margin:0 auto}
+.section-label{font-size:var(--fs-2xs);font-weight:600;letter-spacing:0.085em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1rem}
+.section-title{font-family:var(--ff-serif);font-size:var(--fs-2xl);font-weight:400;letter-spacing:-0.024em;line-height:1.15;margin-bottom:2.5rem;color:var(--ink)}
+.section-title em{font-style:italic;color:var(--accent);font-weight:inherit}
+#publications{max-width:100%;border-top:1px solid var(--border)}
+#publications>.inner{max-width:1180px;margin:0 auto;padding:5.5rem 4rem 6rem}
+.pub-list{list-style:none;margin-bottom:2.5rem}
+.pub-item{display:grid;grid-template-columns:96px 1fr;gap:0 2.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border);align-items:start}
+.pub-item:last-child{border-bottom:none}
+.pub-venue-badge{text-align:left;padding:0.2rem 0;flex-shrink:0}
+.venue-name{font-size:var(--fs-2xs);font-weight:600;letter-spacing:0.085em;text-transform:uppercase;color:var(--ink);display:block;line-height:1.35}
+.venue-year{font-size:var(--fs-2xs);color:var(--ink-soft);letter-spacing:0.03em}
+.pub-title{font-family:var(--ff-serif);font-size:var(--fs-lg);font-weight:400;line-height:1.42;margin-bottom:0.5rem;letter-spacing:-0.013em}
+.pub-title a{color:var(--ink);transition:color 0.18s}
+.pub-title a:hover{color:var(--accent)}
+.nb{white-space:nowrap}
+.pub-arrow{display:inline-block;width:0.7em;height:0.7em;margin-left:0.34em;color:var(--ink-soft);opacity:0.5;transition:opacity 0.18s,transform 0.18s,color 0.18s}
+.pub-title a:hover .pub-arrow{color:var(--accent);opacity:1;transform:translate(1px,-1px)}
+.pub-authors{font-size:var(--fs-sm);font-weight:400;color:var(--ink-mid);margin-bottom:0.4rem;letter-spacing:0}
+.pub-authors strong{color:var(--ink);font-weight:600}
+.pub-keywords{font-size:var(--fs-xs);color:var(--ink-soft);letter-spacing:0.005em}
+.view-all-btn{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--fs-sm);font-weight:500;color:var(--accent);padding:0.85rem 1.9rem;border-radius:999px;background:none;border:1px solid var(--accent);transition:all 0.15s}
+.view-all-btn:hover{background:var(--accent);color:white}
+#contact{background:var(--surface);max-width:100%}
+#contact>.inner{max-width:1180px;margin:0 auto;padding:5.5rem 4rem;color:var(--ink)}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start}
+.contact-detail{display:flex;flex-direction:column;gap:0.85rem;margin-bottom:0}
+.contact-row{display:flex;align-items:center;gap:0.75rem;font-size:var(--fs-base);color:var(--ink-mid)}
+.contact-row svg{width:15px;height:15px;color:var(--accent);flex-shrink:0}
+.contact-row a{color:inherit}
+.contact-row a:hover{color:var(--ink)}
+footer{color:var(--ink-soft);text-align:center;padding:2rem 4rem;font-size:var(--fs-xs);border-top:1px solid var(--border)}
+@media (max-width:800px){
+nav{padding:1rem 1.25rem;gap:0.75rem}
+.nav-logo{font-size:var(--fs-base)}
+.nav-links{gap:1.1rem}
+.nav-links a{font-size:var(--fs-xs)}
+#home{flex-direction:column;align-items:flex-start;padding:6rem 1.25rem 3rem;gap:2rem;min-height:auto}
+.hero-text{max-width:100%}
+.hero-name{font-size:clamp(2.35rem,9.5vw,3.1rem)}
+.hero-affil{font-size:0.9rem;margin-bottom:1.25rem}
+.hero-bio{font-size:var(--fs-base);margin-bottom:1.75rem}
+.hero-visual{order:-1;flex-direction:row;align-items:flex-start;gap:1.25rem;width:100%}
+.photo-frame{width:110px;height:135px;flex-shrink:0;border-radius:12px}
+.research-tags{max-width:none}
+.tag{font-size:var(--fs-2xs);padding:0.3rem 0.7rem}
+.hero-links{gap:0.5rem}
+.hero-links-row{gap:0.5rem}
+.icon-link{font-size:var(--fs-xs);padding:0.55rem 1rem}
+section{padding:3.5rem 1.25rem}
+#publications>.inner,#contact>.inner{padding:3.5rem 1.25rem}
+.section-title{margin-bottom:2rem}
+.pub-item{grid-template-columns:1fr;gap:0.4rem;padding:1.5rem 0}
+.pub-venue-badge{display:flex;align-items:baseline;gap:0.5rem;width:auto}
+
+.pub-title{font-size:var(--fs-base)}
+.pub-authors{font-size:var(--fs-xs)}
+.contact-grid{grid-template-columns:1fr;gap:1.5rem}
+.contact-row{font-size:var(--fs-sm);flex-wrap:wrap}
+.contact-row a{word-break:break-all}
+footer{padding:1.5rem;font-size:var(--fs-2xs)}
+}
+@media (max-width:480px){
+.nav-links{gap:0.7rem}
+.nav-links a{font-size:0.75rem}
+.hero-visual{flex-direction:column}
+.photo-frame{width:140px;height:170px}
+}
+.nav-mobile-overlay{display:none;position:fixed;inset:0;z-index:1000}
+.nav-mobile-overlay.open{display:flex}
+.overlay-backdrop{position:absolute;inset:0;background:oklch(10% 0 0 / 0);transition:background 0.35s ease;cursor:pointer}
+.nav-mobile-overlay.open .overlay-backdrop{background:oklch(10% 0 0 / 0.45)}
+.overlay-drawer{position:absolute;top:0;right:0;bottom:0;width:72%;max-width:300px;background:var(--bg);display:flex;flex-direction:column;padding:5rem 2.5rem 3rem;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 32px oklch(0% 0 0 / 0.08)}
+.nav-mobile-overlay.open .overlay-drawer{transform:translateX(0)}
+.overlay-close{position:absolute;top:1.3rem;right:1.3rem;width:34px;height:34px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.overlay-close span{position:absolute;width:18px;height:1.5px;background:var(--ink)}
+.overlay-close span:nth-child(1){transform:rotate(45deg)}
+.overlay-close span:nth-child(2){transform:rotate(-45deg)}
+.overlay-nav{display:flex;flex-direction:column;gap:0.1rem}
+.overlay-nav a{font-family:var(--ff-serif);font-size:var(--fs-xl);font-weight:400;letter-spacing:-0.02em;color:var(--ink);padding:0.6rem 0;transition:color 0.2s, padding-left 0.2s;display:block}
+.overlay-nav a:hover{color:var(--accent);padding-left:0.5rem}
+.overlay-footer{display:flex;justify-content:center;align-items:center;gap:0.6rem;margin-top:auto;padding-top:2rem}
+.overlay-footer span{font-size:0.8rem;color:var(--ink-soft)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:11px;margin:-11px;background:none;border:none;z-index:200}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:all 0.3s ease;transform-origin:center}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media (max-width:800px){.nav-hamburger{display:flex}.nav-links{display:none}}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#home"><img src="favicon.svg" style="width:22px;height:22px;vertical-align:middle;margin-right:0.5rem;border-radius:50%;" alt="">Dongjun Wei</a>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="publications.html">Publications</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<a class="nav-logo" href="#home"><img src="favicon.svg" style="width:20px;height:20px;vertical-align:middle;margin-right:0.5rem;border-radius:50%" alt="">Dongjun Wei</a>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="publications.html">Publications</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- Mobile Menu Overlay -->
 <div class="nav-mobile-overlay" id="mobileMenu" aria-hidden="true">
-  <div class="overlay-backdrop" id="overlayBackdrop"></div>
-  <div class="overlay-drawer">
-    <button class="overlay-close" id="overlayClose" aria-label="Close menu">
-      <span></span><span></span>
-    </button>
-    <nav class="overlay-nav">
-      <a href="#home">Home</a>
-      <a href="publications.html">Publications</a>
-      <a href="about.html">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="overlay-footer">
-      <img src="favicon.svg" style="width:32px;height:32px;border-radius:50%;opacity:0.75;" alt="">
-    </div>
-  </div>
+<div class="overlay-backdrop" id="overlayBackdrop"></div>
+<div class="overlay-drawer">
+<button class="overlay-close" id="overlayClose" aria-label="Close menu"><span></span><span></span></button>
+<nav class="overlay-nav">
+<a href="#home">Home</a>
+<a href="publications.html">Publications</a>
+<a href="about.html">About</a>
+<a href="#contact">Contact</a>
+</nav>
+<div class="overlay-footer"><img src="favicon.svg" style="width:32px;height:32px;border-radius:50%;opacity:0.75" alt=""></div>
+</div>
 </div>
 
-<!-- HERO -->
 <section id="home">
-  <div class="hero-text">
-    <h1 class="hero-name">Dongjun<br><em>Wei</em></h1>
-    <p class="hero-affil">Assistant Professor · ESCP Business School (Paris)</p>
-    <p class="hero-bio">
-      I hold a PhD from the Faculty of Business and Economics at HKU and previously earned my master's degree at the Institute of Information Engineering, Chinese Academy of Sciences. I also served as a visiting scholar at the Alfred Lerner College of Business &amp; Economics, University of Delaware.<br><br>
-      My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data mining, bridging information systems and computer science to tackle real-world problems in business and society. I am currently an Assistant Professor at ESCP Business School (Paris).
-    </p>
-    <div class="hero-links">
-      <div class="hero-links-row">
-        <a class="icon-link" href="https://scholar.google.com/citations?user=x22wN64AAAAJ&hl=en" target="_blank">
-          <svg viewBox="0 0 512 512" fill="currentColor" style="width:14px;height:14px;flex-shrink:0"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg>
-          Scholar
-        </a>
-        <a class="icon-link" href="https://orcid.org/0000-0003-3199-2367" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12h6M12 8v8"/></svg>
-          ORCID
-        </a>
-        <a class="icon-link" href="https://github.com/djwei96" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          GitHub
-        </a>
-        <a class="icon-link" href="https://www.linkedin.com/in/dongjun-wei" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-      </div>
-      <div class="hero-links-row">
-        <a class="icon-link" href="mailto:dongjun@connect.hku.hk">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-          Email
-        </a>
-      </div>
-    </div>
-  </div>
+<div class="hero-text">
+<p class="hero-eyebrow">Assistant Professor · ESCP Business School</p>
+<h1 class="hero-name">Dongjun <em>Wei</em></h1>
+<p class="hero-bio">
+I hold a PhD from the Faculty of Business and Economics at HKU and previously earned my master's degree at the Institute of Information Engineering, Chinese Academy of Sciences. I also served as a visiting scholar at the Alfred Lerner College of Business &amp; Economics, University of Delaware.<br><br>
+My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data mining, bridging information systems and computer science to tackle real-world problems in business and society. I am currently an Assistant Professor at ESCP Business School (Paris).
+</p>
+<div class="hero-links">
+<div class="hero-links-row">
+<a class="icon-link" href="https://scholar.google.com/citations?user=x22wN64AAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 512 512" fill="currentColor" style="width:15px;height:15px;flex-shrink:0"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg>Scholar</a>
+<a class="icon-link" href="https://orcid.org/0000-0003-3199-2367" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12h6M12 8v8"/></svg>ORCID</a>
+<a class="icon-link" href="https://github.com/djwei96" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
+<a class="icon-link" href="https://www.linkedin.com/in/dongjun-wei" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+</div>
+<div class="hero-links-row">
+<a class="icon-link" href="mailto:dongjun@connect.hku.hk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>Email</a>
+</div>
+</div>
+</div>
 
-  <div class="hero-visual">
-    <div class="photo-frame">
-      <img src="uploads/Dongjun Photo Optimized.jpg" alt="Dongjun Wei" />
-    </div>
-    <div class="research-tags">
-      <span class="tag">Generative AI</span>
-      <span class="tag">Large Language Models</span>
-      <span class="tag">Trustworthy AI</span>
-      <span class="tag">AI Fairness</span>
-      <span class="tag">Healthcare</span>
-      <span class="tag">Data Mining</span>
-      <span class="tag">Information Systems</span>
-    </div>
-  </div>
+<div class="hero-visual">
+<div class="photo-frame"><img src="assets/dongjun-wei.jpg" alt="Dongjun Wei" /></div>
+<div class="research-tags">
+<span class="tag">Generative AI</span>
+<span class="tag">Large Language Models</span>
+<span class="tag">Trustworthy AI</span>
+<span class="tag">AI Fairness</span>
+<span class="tag">Healthcare</span>
+<span class="tag">Data Mining</span>
+<span class="tag">Information Systems</span>
+</div>
+</div>
 </section>
 
-
-<!-- SELECTED PUBLICATIONS -->
 <div id="publications">
-  <div class="inner">
-    <p class="section-label fade-in">Research</p>
-    <h2 class="section-title fade-in">Selected <em>Publications</em></h2>
-
-    <ul class="pub-list">
-      <li class="pub-item fade-in">
-        <div class="pub-venue-badge">
-          <span class="venue-name">MISQ</span>
-          <span class="venue-year">2025</span>
-        </div>
-        <div class="pub-body">
-          <p class="pub-title">Mitigating Bias in Hate Speech Detection with a Small Number of Expert Annotations: A Prompt-based Learning Approach</p>
-          <p class="pub-authors"><strong>Dongjun Wei</strong>, Michael Chau, and Zhepeng (Lionel) Li</p>
-          <div class="pub-keywords">
-            <span class="kw">AI Fairness</span>
-            <span class="kw">Large Language Model</span>
-            <span class="kw">Hate Speech Detection</span>
-          </div>
-          <a class="pub-link" href="https://doi.org/10.25300/MISQ/2025/18416" target="_blank">Article Link →</a>
-        </div>
-      </li>
-
-      <li class="pub-item fade-in">
-        <div class="pub-venue-badge">
-          <span class="venue-name">ACL</span>
-          <span class="venue-year">2025</span>
-        </div>
-        <div class="pub-body">
-          <p class="pub-title">Watermarking Low-entropy Generation for Large Language Models: An Unbiased and Low-risk Method</p>
-          <p class="pub-authors">Minjia Mao, <strong>Dongjun Wei</strong>, Zeyu Chen, Xiao Fang, and Michael Chau</p>
-          <div class="pub-keywords">
-            <span class="kw">AI Safety</span>
-            <span class="kw">Large Language Model</span>
-            <span class="kw">Watermark</span>
-          </div>
-          <a class="pub-link" href="https://arxiv.org/pdf/2405.14604" target="_blank">Article Link →</a>
-        </div>
-      </li>
-
-      <li class="pub-item fade-in">
-        <div class="pub-venue-badge">
-          <span class="venue-name">COLM</span>
-          <span class="venue-year">2025</span>
-        </div>
-        <div class="pub-body">
-          <p class="pub-title">Short-PHD: Detecting Short LLM-generated Text with Topological Data Analysis After Off-topic Content Insertion</p>
-          <p class="pub-authors"><strong>Dongjun Wei</strong>, Minjia Mao, Xiao Fang, and Michael Chau</p>
-          <div class="pub-keywords">
-            <span class="kw">AI Safety</span>
-            <span class="kw">Large Language Model</span>
-            <span class="kw">Topological Data Analysis</span>
-          </div>
-          <a class="pub-link" href="https://arxiv.org/pdf/2504.02873" target="_blank">Article Link →</a>
-        </div>
-      </li>
-    </ul>
-
-    <div class="fade-in" style="text-align:center; padding-top: 1rem;">
-      <a href="publications.html" class="view-all-btn">View All Publications →</a>
-    </div>
-  </div>
+<div class="inner">
+<p class="section-label">Research</p>
+<h2 class="section-title">Selected <em>Publications</em></h2>
+<ul class="pub-list">
+<li class="pub-item">
+<div class="pub-venue-badge"><span class="venue-name">MISQ</span><span class="venue-year">2025</span></div>
+<div class="pub-body">
+<p class="pub-title"><a href="https://doi.org/10.25300/MISQ/2025/18416" target="_blank" rel="noopener noreferrer">Mitigating Bias in Hate Speech Detection with a Small Number of Expert Annotations: A Prompt-based Learning <span class="nb">Approach<svg class="pub-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 10.5 10.5 5.5"/><path d="M6 5.5h4.5V10"/></svg></span></a></p>
+<p class="pub-authors"><strong>Dongjun Wei</strong>, Michael Chau, and Zhepeng (Lionel) Li</p>
+<p class="pub-keywords">AI Fairness · Large Language Model · Hate Speech Detection</p>
+</div>
+</li>
+<li class="pub-item">
+<div class="pub-venue-badge"><span class="venue-name">ACL</span><span class="venue-year">2025</span></div>
+<div class="pub-body">
+<p class="pub-title"><a href="https://arxiv.org/pdf/2405.14604" target="_blank" rel="noopener noreferrer">Watermarking Low-entropy Generation for Large Language Models: An Unbiased and Low-risk <span class="nb">Method<svg class="pub-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 10.5 10.5 5.5"/><path d="M6 5.5h4.5V10"/></svg></span></a></p>
+<p class="pub-authors">Minjia Mao, <strong>Dongjun Wei</strong>, Zeyu Chen, Xiao Fang, and Michael Chau</p>
+<p class="pub-keywords">AI Safety · Large Language Model · Watermark</p>
+</div>
+</li>
+<li class="pub-item">
+<div class="pub-venue-badge"><span class="venue-name">COLM</span><span class="venue-year">2025</span></div>
+<div class="pub-body">
+<p class="pub-title"><a href="https://arxiv.org/pdf/2504.02873" target="_blank" rel="noopener noreferrer">Short-PHD: Detecting Short LLM-generated Text with Topological Data Analysis After Off-topic Content <span class="nb">Insertion<svg class="pub-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 10.5 10.5 5.5"/><path d="M6 5.5h4.5V10"/></svg></span></a></p>
+<p class="pub-authors"><strong>Dongjun Wei</strong>, Minjia Mao, Xiao Fang, and Michael Chau</p>
+<p class="pub-keywords">AI Safety · Large Language Model · Topological Data Analysis</p>
+</div>
+</li>
+</ul>
+<div style="text-align:center;padding-top:1rem"><a href="publications.html" class="view-all-btn">View All Publications →</a></div>
+</div>
 </div>
 
-<!-- CONTACT -->
 <div id="contact">
-  <div class="inner">
-    <p class="section-label fade-in">Get in Touch</p>
-    <h2 class="section-title fade-in">Contact <em>Info</em></h2>
-
-    <div class="contact-grid">
-      <div class="contact-info fade-in">
-        <div class="contact-detail">
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-            <a href="mailto:dongjun@connect.hku.hk">dongjun@connect.hku.hk</a>
-          </div>
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            6-8 Avenue de la Porte de Champerret, 75017 Paris
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  </div>
+<div class="inner">
+<p class="section-label">Get in Touch</p>
+<h2 class="section-title">Contact <em>Info</em></h2>
+<div class="contact-grid">
+<div class="contact-info">
+<div class="contact-detail">
+<div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg><a href="mailto:dongjun@connect.hku.hk">dongjun@connect.hku.hk</a></div>
+<div class="contact-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>6-8 Avenue de la Porte de Champerret, 75017 Paris</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Dongjun Wei · All rights reserved</p>
-</footer>
+<footer><p>© 2026 Dongjun Wei · All rights reserved</p></footer>
 
 <script>
-  // Scroll-triggered fade-ins
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Active nav link highlight on scroll
-  const sections = ['home','publications','contact'];
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  function setActive() {
-    const y = window.scrollY + 120;
-    sections.forEach((id, i) => {
-      const el = document.getElementById(id) || document.querySelector('#' + id + ' > .inner') && document.getElementById(id);
-      if (!el) return;
-      const top = el.offsetTop;
-      if (y >= top) {
-        navLinks.forEach(l => l.style.color = '');
-        if (navLinks[i]) navLinks[i].style.color = 'var(--accent)';
-      }
-    });
-  }
-
-  window.addEventListener('scroll', setActive, { passive: true });
-  setActive();
-
-  // Hamburger menu
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const overlayClose = document.getElementById('overlayClose');
-  const overlayBackdrop = document.getElementById('overlayBackdrop');
-
-  function openMenu() {
-    mobileMenu.style.display = 'flex';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => mobileMenu.classList.add('open'));
-    });
-    hamburger.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMenu() {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(() => { mobileMenu.style.display = 'none'; }, 400);
-  }
-
-  hamburger.addEventListener('click', openMenu);
-  overlayClose.addEventListener('click', closeMenu);
-  overlayBackdrop.addEventListener('click', closeMenu);
-
-  mobileMenu.querySelectorAll('.overlay-nav a').forEach(a => {
-    a.addEventListener('click', closeMenu);
+const sections = ['home','publications','contact'];
+const navLinks = document.querySelectorAll('.nav-links a');
+function setActive() {
+  const y = window.scrollY + 120;
+  sections.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (y >= el.offsetTop) { navLinks.forEach(l => l.style.color = ''); if (navLinks[i]) navLinks[i].style.color = 'var(--ink)'; }
   });
+}
+window.addEventListener('scroll', setActive, { passive: true });
+setActive();
 
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const overlayClose = document.getElementById('overlayClose');
+const overlayBackdrop = document.getElementById('overlayBackdrop');
+function openMenu() { mobileMenu.style.display = 'flex'; requestAnimationFrame(() => requestAnimationFrame(() => mobileMenu.classList.add('open'))); hamburger.classList.add('open'); mobileMenu.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
+function closeMenu() { mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); mobileMenu.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; setTimeout(() => { mobileMenu.style.display = 'none'; }, 400); }
+hamburger.addEventListener('click', openMenu);
+overlayClose.addEventListener('click', closeMenu);
+overlayBackdrop.addEventListener('click', closeMenu);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu(); });
+mobileMenu.querySelectorAll('.overlay-nav a').forEach(a => a.addEventListener('click', closeMenu));
 </script>
 </body>
 </html>
