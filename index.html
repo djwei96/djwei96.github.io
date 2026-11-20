@@ -12,6 +12,7 @@
 <meta name="author" content="Dongjun Wei" />
 <meta name="theme-color" content="#f7f4ef" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preload" as="image" href="assets/dongjun-wei.webp" type="image/webp" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet" />
@@ -21,7 +22,7 @@
   --surface:oklch(94% 0.01 70);
   --ink:oklch(17% 0.012 50);
   --ink-mid:oklch(40% 0.008 50);
-  --ink-soft:oklch(56% 0.008 55);
+  --ink-soft:oklch(50% 0.008 55);
   --accent:oklch(53% 0.13 40);
   --accent-dark:oklch(44% 0.13 38);
   --accent-light:oklch(93% 0.035 45);
@@ -45,34 +46,30 @@ a{color:var(--accent);text-decoration:none}
 a:hover{color:var(--ink)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
 body{background:var(--bg);color:var(--ink);font-family:var(--ff);font-size:var(--fs-base);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;font-optical-sizing:auto;font-kerning:normal;text-rendering:optimizeLegibility}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:oklch(98% 0.002 0 / 0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:var(--bg);border-bottom:1px solid var(--border)}
 .nav-logo{font-size:var(--fs-md);font-weight:500;letter-spacing:-0.01em;color:var(--ink);white-space:nowrap;display:flex;align-items:center}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);transition:color 0.2s}
 .nav-links a:hover{color:var(--ink)}
-#home{display:flex;align-items:flex-start;justify-content:center;max-width:1120px;margin:0 auto;padding:9.5rem 4rem 5rem;gap:6rem}
+#home{display:flex;align-items:flex-start;justify-content:flex-start;max-width:1180px;margin:0 auto;padding:9.5rem 4rem 5rem;gap:8rem}
 .hero-text{max-width:560px;flex-shrink:0}
-.hero-eyebrow{font-size:var(--fs-2xs);font-weight:600;letter-spacing:0.085em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.4rem}
 .hero-name{font-family:var(--ff-serif);font-size:var(--fs-4xl);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:2rem;color:var(--ink)}
-.hero-name em{font-style:italic;color:var(--accent);font-weight:inherit}
-.hero-affil{font-size:1.05rem;font-weight:500;color:var(--ink-mid);margin-bottom:1.75rem}
 .hero-bio{font-size:var(--fs-md);color:var(--ink-mid);line-height:1.7;max-width:31em;margin-bottom:2.25rem}
 .hero-bio strong{color:var(--ink);font-weight:600}
-.hero-links{display:flex;flex-direction:column;gap:0.7rem;align-items:flex-start}
-.hero-links-row{display:flex;gap:0.6rem;flex-wrap:wrap}
+.hero-links{display:flex;flex-wrap:wrap;gap:0.6rem;align-items:flex-start}
+.hero-links-row{display:contents}
 .icon-link{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);padding:0.65rem 1.25rem;border-radius:999px;transition:all 0.15s;background:var(--bg);border:1px solid var(--border)}
 .icon-link:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
 .icon-link:hover svg{color:var(--accent-dark)}
 .icon-link svg{width:15px;height:15px;flex-shrink:0}
 .hero-visual{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:1.75rem}
-.photo-frame{width:250px;height:308px;position:relative;overflow:hidden;border-radius:14px;margin-top:0.4rem}
-.photo-frame img{width:115%;height:115%;margin-left:-7.5%;margin-top:-2%;object-fit:cover;object-position:center top;display:block}
-.research-tags{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:flex-start;width:250px}
+.photo-frame{width:280px;height:345px;position:relative;overflow:hidden;border-radius:14px;margin-top:0.4rem}
+.photo-frame picture{display:block;width:100%;height:100%}
+.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.research-tags{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:flex-start;width:280px}
 .tag{font-size:var(--fs-xs);font-weight:500;padding:0.35rem 0.8rem;background:var(--surface);color:var(--ink-mid);border-radius:999px;white-space:nowrap}
 section{padding:7rem 4rem;max-width:1180px;margin:0 auto}
-.section-label{font-size:var(--fs-2xs);font-weight:600;letter-spacing:0.085em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1rem}
 .section-title{font-family:var(--ff-serif);font-size:var(--fs-2xl);font-weight:400;letter-spacing:-0.024em;line-height:1.15;margin-bottom:2.5rem;color:var(--ink)}
-.section-title em{font-style:italic;color:var(--accent);font-weight:inherit}
 #publications{max-width:100%;border-top:1px solid var(--border)}
 #publications>.inner{max-width:1180px;margin:0 auto;padding:5.5rem 4rem 6rem}
 .pub-list{list-style:none;margin-bottom:2.5rem}
@@ -90,14 +87,14 @@ section{padding:7rem 4rem;max-width:1180px;margin:0 auto}
 .pub-authors{font-size:var(--fs-sm);font-weight:400;color:var(--ink-mid);margin-bottom:0.4rem;letter-spacing:0}
 .pub-authors strong{color:var(--ink);font-weight:600}
 .pub-keywords{font-size:var(--fs-xs);color:var(--ink-soft);letter-spacing:0.005em}
-.view-all-btn{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--fs-sm);font-weight:500;color:var(--accent);padding:0.85rem 1.9rem;border-radius:999px;background:none;border:1px solid var(--accent);transition:all 0.15s}
-.view-all-btn:hover{background:var(--accent);color:white}
-#contact{background:var(--surface);max-width:100%}
+.view-all-btn{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);padding:0.65rem 1.25rem;border-radius:999px;transition:all 0.15s;background:var(--bg);border:1px solid var(--border)}
+.view-all-btn:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
+#contact{max-width:100%;border-top:1px solid var(--border)}
 #contact>.inner{max-width:1180px;margin:0 auto;padding:5.5rem 4rem;color:var(--ink)}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start}
 .contact-detail{display:flex;flex-direction:column;gap:0.85rem;margin-bottom:0}
-.contact-row{display:flex;align-items:center;gap:0.75rem;font-size:var(--fs-base);color:var(--ink-mid)}
-.contact-row svg{width:15px;height:15px;color:var(--accent);flex-shrink:0}
+.contact-row{display:flex;align-items:flex-start;gap:0.75rem;font-size:var(--fs-base);color:var(--ink-mid)}
+.contact-row svg{width:15px;height:15px;color:var(--accent);flex-shrink:0;margin-top:0.3em}
 .contact-row a{color:inherit}
 .contact-row a:hover{color:var(--ink)}
 footer{color:var(--ink-soft);text-align:center;padding:2rem 4rem;font-size:var(--fs-xs);border-top:1px solid var(--border)}
@@ -106,17 +103,15 @@ nav{padding:1rem 1.25rem;gap:0.75rem}
 .nav-logo{font-size:var(--fs-base)}
 .nav-links{gap:1.1rem}
 .nav-links a{font-size:var(--fs-xs)}
-#home{flex-direction:column;align-items:flex-start;padding:6rem 1.25rem 3rem;gap:2rem;min-height:auto}
+#home{display:grid;grid-template-columns:auto 1fr;column-gap:1.5rem;row-gap:0;padding:6rem 1.25rem 3rem;min-height:auto}
 .hero-text{max-width:100%}
-.hero-name{font-size:clamp(2.35rem,9.5vw,3.1rem)}
-.hero-affil{font-size:0.9rem;margin-bottom:1.25rem}
-.hero-bio{font-size:var(--fs-base);margin-bottom:1.75rem}
-.hero-visual{order:-1;flex-direction:row;align-items:flex-start;gap:1.25rem;width:100%}
-.photo-frame{width:110px;height:135px;flex-shrink:0;border-radius:12px}
-.research-tags{max-width:none}
+.hero-name{grid-column:2;grid-row:1/3;align-self:center;margin-bottom:0;font-size:clamp(2.35rem,9.5vw,3.1rem)}
+.hero-bio{grid-column:1/-1;grid-row:4;margin-top:1.75rem;font-size:var(--fs-base);margin-bottom:1.75rem}
+.hero-text,.hero-visual{display:contents}
+.photo-frame{grid-column:1;grid-row:1/3;width:150px;height:185px;margin:0;border-radius:12px}
+.research-tags{grid-column:1/-1;grid-row:3;width:auto;margin-top:1.5rem}
 .tag{font-size:var(--fs-2xs);padding:0.3rem 0.7rem}
-.hero-links{gap:0.5rem}
-.hero-links-row{gap:0.5rem}
+.hero-links{grid-column:1/-1;grid-row:5;gap:0.5rem}
 .icon-link{font-size:var(--fs-xs);padding:0.55rem 1rem}
 section{padding:3.5rem 1.25rem}
 #publications>.inner,#contact>.inner{padding:3.5rem 1.25rem}
@@ -127,15 +122,20 @@ section{padding:3.5rem 1.25rem}
 .pub-title{font-size:var(--fs-base)}
 .pub-authors{font-size:var(--fs-xs)}
 .contact-grid{grid-template-columns:1fr;gap:1.5rem}
-.contact-row{font-size:var(--fs-sm);flex-wrap:wrap}
+.contact-row{font-size:var(--fs-sm);flex-wrap:nowrap}
 .contact-row a{word-break:break-all}
 footer{padding:1.5rem;font-size:var(--fs-2xs)}
 }
 @media (max-width:480px){
 .nav-links{gap:0.7rem}
 .nav-links a{font-size:0.75rem}
-.hero-visual{flex-direction:column}
-.photo-frame{width:140px;height:170px}
+#home{column-gap:1rem;padding-top:5.5rem}
+.photo-frame{width:100px;height:123px;border-radius:10px}
+.hero-name{font-size:clamp(1.9rem,8.5vw,2.6rem)}
+}
+@media (min-width:481px) and (max-width:800px){
+#home,#publications>.inner,#contact>.inner{max-width:640px;margin-left:auto;margin-right:auto}
+.hero-bio{max-width:none}
 }
 .nav-mobile-overlay{display:none;position:fixed;inset:0;z-index:1000}
 .nav-mobile-overlay.open{display:flex}
@@ -147,7 +147,7 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 .overlay-close span{position:absolute;width:18px;height:1.5px;background:var(--ink)}
 .overlay-close span:nth-child(1){transform:rotate(45deg)}
 .overlay-close span:nth-child(2){transform:rotate(-45deg)}
-.overlay-nav{display:flex;flex-direction:column;gap:0.1rem}
+.overlay-nav{display:flex;flex-direction:column;gap:0.1rem;position:static;padding:0;background:none;border:none;justify-content:flex-start;align-items:stretch;z-index:auto}
 .overlay-nav a{font-family:var(--ff-serif);font-size:var(--fs-xl);font-weight:400;letter-spacing:-0.02em;color:var(--ink);padding:0.6rem 0;transition:color 0.2s, padding-left 0.2s;display:block}
 .overlay-nav a:hover{color:var(--accent);padding-left:0.5rem}
 .overlay-footer{display:flex;justify-content:center;align-items:center;gap:0.6rem;margin-top:auto;padding-top:2rem}
@@ -188,8 +188,7 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 
 <section id="home">
 <div class="hero-text">
-<p class="hero-eyebrow">Assistant Professor · ESCP Business School</p>
-<h1 class="hero-name">Dongjun <em>Wei</em></h1>
+<h1 class="hero-name">Dongjun Wei</h1>
 <p class="hero-bio">
 I hold a PhD from the Faculty of Business and Economics at HKU and previously earned my master's degree at the Institute of Information Engineering, Chinese Academy of Sciences. I also served as a visiting scholar at the Alfred Lerner College of Business &amp; Economics, University of Delaware.<br><br>
 My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data mining, bridging information systems and computer science to tackle real-world problems in business and society. I am currently an Assistant Professor at ESCP Business School (Paris).
@@ -197,7 +196,7 @@ My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data
 <div class="hero-links">
 <div class="hero-links-row">
 <a class="icon-link" href="https://scholar.google.com/citations?user=x22wN64AAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 512 512" fill="currentColor" style="width:15px;height:15px;flex-shrink:0"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg>Scholar</a>
-<a class="icon-link" href="https://orcid.org/0000-0003-3199-2367" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12h6M12 8v8"/></svg>ORCID</a>
+<a class="icon-link" href="https://orcid.org/0000-0003-3199-2367" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="16" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" style="fill:var(--bg)">iD</text></svg>ORCID</a>
 <a class="icon-link" href="https://github.com/djwei96" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
 <a class="icon-link" href="https://www.linkedin.com/in/dongjun-wei" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
 </div>
@@ -208,7 +207,7 @@ My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data
 </div>
 
 <div class="hero-visual">
-<div class="photo-frame"><img src="assets/dongjun-wei.jpg" alt="Dongjun Wei" /></div>
+<div class="photo-frame"><picture><source srcset="assets/dongjun-wei.webp" type="image/webp" /><img src="assets/dongjun-wei.jpg" alt="Dongjun Wei" width="560" height="690" fetchpriority="high" decoding="async" /></picture></div>
 <div class="research-tags">
 <span class="tag">Generative AI</span>
 <span class="tag">Large Language Models</span>
@@ -223,8 +222,7 @@ My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data
 
 <div id="publications">
 <div class="inner">
-<p class="section-label">Research</p>
-<h2 class="section-title">Selected <em>Publications</em></h2>
+<h2 class="section-title">Selected Publications</h2>
 <ul class="pub-list">
 <li class="pub-item">
 <div class="pub-venue-badge"><span class="venue-name">MISQ</span><span class="venue-year">2025</span></div>
@@ -257,8 +255,7 @@ My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data
 
 <div id="contact">
 <div class="inner">
-<p class="section-label">Get in Touch</p>
-<h2 class="section-title">Contact <em>Info</em></h2>
+<h2 class="section-title">Contact</h2>
 <div class="contact-grid">
 <div class="contact-info">
 <div class="contact-detail">
@@ -270,7 +267,7 @@ My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data
 </div>
 </div>
 
-<footer><p>© 2026 Dongjun Wei · All rights reserved</p></footer>
+<footer><p>© 2026 Dongjun Wei. All rights reserved.</p></footer>
 
 <script>
 const sections = ['home','publications','contact'];
@@ -280,7 +277,7 @@ function setActive() {
   sections.forEach((id, i) => {
     const el = document.getElementById(id);
     if (!el) return;
-    if (y >= el.offsetTop) { navLinks.forEach(l => l.style.color = ''); if (navLinks[i]) navLinks[i].style.color = 'var(--ink)'; }
+    if (y >= el.offsetTop) { navLinks.forEach(l => l.style.color = ''); const link = document.querySelector('.nav-links a[href="#' + id + '"]'); if (link) link.style.color = 'var(--ink)'; }
   });
 }
 window.addEventListener('scroll', setActive, { passive: true });

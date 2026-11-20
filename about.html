@@ -17,7 +17,7 @@
   --surface:oklch(94% 0.01 70);
   --ink:oklch(17% 0.012 50);
   --ink-mid:oklch(40% 0.008 50);
-  --ink-soft:oklch(56% 0.008 55);
+  --ink-soft:oklch(50% 0.008 55);
   --accent:oklch(53% 0.13 40);
   --accent-dark:oklch(44% 0.13 38);
   --accent-light:oklch(93% 0.035 45);
@@ -41,28 +41,24 @@ a{color:var(--accent);text-decoration:none}
 a:hover{color:var(--ink)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
 body{background:var(--bg);color:var(--ink);font-family:var(--ff);font-size:var(--fs-base);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;font-optical-sizing:auto;font-kerning:normal;text-rendering:optimizeLegibility}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:oklch(98% 0.002 0 / 0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:var(--bg);border-bottom:1px solid var(--border)}
 .nav-logo{font-size:var(--fs-md);font-weight:500;letter-spacing:-0.01em;color:var(--ink);white-space:nowrap;display:flex;align-items:center}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);transition:color 0.2s}
 .nav-links a:hover,.nav-links a.active{color:var(--ink)}
 .page-header{padding:10rem 4rem 4rem;max-width:1180px;margin:0 auto;border-bottom:1px solid var(--border)}
-.page-eyebrow{font-size:var(--fs-2xs);font-weight:600;letter-spacing:0.085em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1rem}
 .page-title{font-family:var(--ff-serif);font-size:var(--fs-3xl);font-weight:400;letter-spacing:-0.028em;line-height:1.08;color:var(--ink)}
-.page-title em{font-style:italic;color:var(--accent);font-weight:inherit}
-.back-link{display:inline-flex;align-items:center;gap:0.4rem;font-size:var(--fs-sm);color:var(--ink-soft);margin-top:2rem;transition:color 0.2s}
-.back-link:hover{color:var(--ink)}
-.about-page{max-width:1180px;margin:0 auto;padding:5rem 4rem 6rem;display:grid;grid-template-columns:200px 1fr;gap:0 5rem;align-items:start}
+.about-page{max-width:1180px;margin:0 auto;padding:4rem 4rem 6rem;display:grid;grid-template-columns:200px 1fr;gap:0 5rem;align-items:start}
 .sidebar{position:sticky;top:6rem}
 .sidebar-label{font-size:var(--fs-xs);font-weight:600;color:var(--ink-soft);margin-bottom:1rem}
 .sidebar-nav{list-style:none;display:flex;flex-direction:column;gap:0.15rem}
 .sidebar-nav a{display:block;font-size:var(--fs-sm);color:var(--ink-mid);padding:0.4rem 0.75rem;border-left:2px solid transparent;transition:all 0.2s}
 .sidebar-nav a:hover,.sidebar-nav a.active{color:var(--ink);border-left-color:var(--ink)}
+.sidebar-nav a:focus-visible{outline:none;color:var(--ink);border-left-color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .about-content{display:flex;flex-direction:column;gap:3.5rem}
-.section-heading{font-family:var(--ff-serif);font-size:var(--fs-xl);font-weight:400;letter-spacing:-0.02em;margin-bottom:2em;padding-bottom:0.85rem;border-bottom:1px solid var(--border);color:var(--ink)}
-.section-heading em{font-style:italic;color:var(--accent);font-weight:inherit}
+.section-heading{font-family:var(--ff-serif);font-size:var(--fs-xl);font-weight:400;letter-spacing:-0.02em;margin-bottom:1rem;padding-bottom:0.85rem;border-bottom:1px solid var(--border);color:var(--ink)}
 .timeline{display:flex;flex-direction:column;gap:0}
-.timeline-item{display:grid;grid-template-columns:150px 1fr;gap:0 2.5rem;padding:1.9rem 0;border-bottom:1px solid var(--border)}
+.timeline-item{display:grid;grid-template-columns:150px 1fr;gap:0 2.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
 .timeline-item:last-child{border-bottom:none}
 .tl-year{font-size:var(--fs-xs);font-weight:500;color:var(--ink-soft);padding-top:0.15rem;line-height:1.3;text-align:left}
 .tl-institution{font-family:var(--ff-serif);font-size:var(--fs-lg);font-weight:400;color:var(--ink);margin-bottom:0.3rem;letter-spacing:-0.013em}
@@ -72,15 +68,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .tl-advisor a:hover{color:var(--ink);text-decoration:underline}
 .tl-location{font-size:var(--fs-xs);color:var(--ink-soft);margin-top:0.25rem}
 .awards-list{list-style:none;display:flex;flex-direction:column;gap:0}
-.award-item{display:grid;grid-template-columns:95px 1fr;gap:0 2.5rem;padding:1.35rem 0;border-bottom:1px solid var(--border);align-items:start}
+.award-item{display:grid;grid-template-columns:150px 1fr;gap:0 2.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border);align-items:start}
 .award-item:last-child{border-bottom:none}
-.award-year{font-size:var(--fs-xs);color:var(--ink-soft);text-align:left;padding-top:0.1rem}
-.award-name{font-size:var(--fs-base);color:var(--ink);font-weight:500;margin-bottom:0.2rem}
+.award-year{font-size:var(--fs-xs);font-weight:500;color:var(--ink-soft);text-align:left;padding-top:0.15rem}
+.award-name{font-family:var(--ff-serif);font-size:var(--fs-lg);font-weight:400;color:var(--ink);margin-bottom:0.3rem;letter-spacing:-0.013em}
 .award-org{font-size:var(--fs-xs);color:var(--ink-soft)}
 .industry-list{list-style:none;display:flex;flex-direction:column}
-.industry-item{display:grid;grid-template-columns:150px 1fr;gap:0 2.5rem;padding:1.9rem 0;border-bottom:1px solid var(--border)}
+.industry-item{display:grid;grid-template-columns:150px 1fr;gap:0 2.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
 .industry-item:last-child{border-bottom:none}
-.ind-period{font-size:var(--fs-xs);color:var(--ink-soft);text-align:left;padding-top:0.2rem;line-height:1.5}
+.ind-period{font-size:var(--fs-xs);font-weight:500;color:var(--ink-soft);text-align:left;padding-top:0.15rem;line-height:1.3}
 .ind-company{font-family:var(--ff-serif);font-size:var(--fs-lg);font-weight:400;color:var(--ink);margin-bottom:0.3rem;letter-spacing:-0.013em}
 .ind-location{font-size:var(--fs-xs);color:var(--ink-soft)}
 footer{color:var(--ink-soft);text-align:center;padding:2rem 4rem;font-size:var(--fs-xs);border-top:1px solid var(--border)}
@@ -95,21 +91,19 @@ nav{padding:1rem 1.25rem}
 .sidebar{position:static;padding-top:1.5rem;display:flex;flex-direction:row;gap:0.5rem;flex-wrap:wrap;align-items:center}
 .sidebar-label{display:none}
 .sidebar-nav{flex-direction:row;flex-wrap:wrap;gap:0.4rem}
-.sidebar-nav a{border-left:none;border:1px solid var(--border);border-radius:999px;padding:0.35rem 0.8rem;font-size:var(--fs-xs);transition:border-color 0.2s, color 0.2s}
-.sidebar-nav a:hover{border-color:var(--ink) !important;color:var(--ink)}
-.sidebar-nav a.active{border-color:var(--ink);background:none}
+.sidebar-nav a{border-left:none;border:1px solid var(--border);border-radius:999px;padding:0.55rem 1rem;font-size:var(--fs-xs);font-weight:500;color:var(--ink-mid);background:var(--bg);transition:all 0.15s}
+.sidebar-nav a:hover{background:var(--accent-light);border-color:var(--accent) !important;color:var(--accent-dark)}
+.sidebar-nav a.active{border-color:var(--border);color:var(--ink-mid);background:var(--bg)}
 .about-content{gap:3rem;padding-top:1.5rem}
-.section-heading{font-size:1.375rem;margin-bottom:1.5rem}
+.section-heading{font-size:1.375rem;margin-bottom:1rem}
 .timeline-item,.industry-item{grid-template-columns:1fr;gap:0.3rem;padding:1.5rem 0}
-.tl-year,.ind-period{font-size:var(--fs-xs);color:var(--accent)}
-.tl-institution,.ind-company{font-size:var(--fs-base)}
+.tl-institution,.ind-company,.award-name{font-size:var(--fs-base)}
 .tl-degree,.tl-advisor,.tl-location,.ind-location{font-size:var(--fs-xs)}
-.award-item{grid-template-columns:1fr;gap:0.3rem;padding:1.25rem 0}
-.award-year{font-size:var(--fs-xs);color:var(--accent)}
-.award-name{font-size:var(--fs-sm)}
+.award-item{grid-template-columns:1fr;gap:0.3rem;padding:1.5rem 0}
 footer{padding:1.5rem;font-size:var(--fs-2xs)}
 }
 @media (max-width:480px){.nav-links{gap:0.7rem}.nav-links a{font-size:0.75rem}}
+@media (min-width:481px) and (max-width:800px){.page-header,.about-page{max-width:640px;margin-left:auto;margin-right:auto}}
 .nav-mobile-overlay{display:none;position:fixed;inset:0;z-index:1000}
 .nav-mobile-overlay.open{display:flex}
 .overlay-backdrop{position:absolute;inset:0;background:oklch(10% 0 0 / 0);transition:background 0.35s ease;cursor:pointer}
@@ -120,7 +114,7 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 .overlay-close span{position:absolute;width:18px;height:1.5px;background:var(--ink)}
 .overlay-close span:nth-child(1){transform:rotate(45deg)}
 .overlay-close span:nth-child(2){transform:rotate(-45deg)}
-.overlay-nav{display:flex;flex-direction:column;gap:0.1rem}
+.overlay-nav{display:flex;flex-direction:column;gap:0.1rem;position:static;padding:0;background:none;border:none;justify-content:flex-start;align-items:stretch;z-index:auto}
 .overlay-nav a{font-family:var(--ff-serif);font-size:var(--fs-xl);font-weight:400;letter-spacing:-0.02em;color:var(--ink);padding:0.6rem 0;transition:color 0.2s, padding-left 0.2s;display:block}
 .overlay-nav a:hover{color:var(--accent);padding-left:0.5rem}
 .overlay-footer{display:flex;justify-content:center;align-items:center;gap:0.6rem;margin-top:auto;padding-top:2rem}
@@ -160,9 +154,7 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 </div>
 
 <div class="page-header">
-<p class="page-eyebrow">Background &amp; Experience</p>
-<h1 class="page-title">About <em>Me</em></h1>
-<a class="back-link" href="index.html">← Back to Home</a>
+<h1 class="page-title">About</h1>
 </div>
 
 <div class="about-page">
@@ -255,7 +247,7 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 </div>
 
 <div class="about-section" id="industry">
-<h2 class="section-heading">Industry <em>Experience</em></h2>
+<h2 class="section-heading">Industry Experience</h2>
 <ul class="industry-list">
 <li class="industry-item">
 <div class="ind-period">Mar 2026 – present</div>
@@ -282,7 +274,7 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 </div>
 
 <div class="about-section" id="awards">
-<h2 class="section-heading">Awards &amp; <em>Honours</em></h2>
+<h2 class="section-heading">Awards &amp; Honours</h2>
 <ul class="awards-list">
 <li class="award-item">
 <div class="award-year">2026</div>
@@ -338,7 +330,7 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 </div>
 </div>
 
-<footer><p>© 2026 Dongjun Wei · All rights reserved</p></footer>
+<footer><p>© 2026 Dongjun Wei. All rights reserved.</p></footer>
 
 <script>
 const hamburger = document.getElementById('hamburger');
