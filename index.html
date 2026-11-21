@@ -51,18 +51,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);transition:color 0.2s}
 .nav-links a:hover{color:var(--ink)}
-#home{display:flex;align-items:flex-start;justify-content:flex-start;max-width:1180px;margin:0 auto;padding:9.5rem 4rem 5rem;gap:8rem}
-.hero-text{max-width:560px;flex-shrink:0}
+#home{display:flex;align-items:flex-start;justify-content:flex-start;max-width:1180px;margin:0 auto;padding:9.5rem 4rem 5rem;gap:clamp(3rem,9vw,8rem)}
+.hero-text{max-width:560px;flex:0 1 560px;min-width:0}
 .hero-name{font-family:var(--ff-serif);font-size:var(--fs-4xl);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:2rem;color:var(--ink)}
-.hero-bio{font-size:var(--fs-md);color:var(--ink-mid);line-height:1.7;max-width:31em;margin-bottom:2.25rem}
+.hero-bio{font-size:var(--fs-md);color:var(--ink-mid);line-height:1.7;max-width:31em;margin-bottom:2rem}
 .hero-bio strong{color:var(--ink);font-weight:600}
+.hero-bio p+p{margin-top:1em}
 .hero-links{display:flex;flex-wrap:wrap;gap:0.6rem;align-items:flex-start}
 .hero-links-row{display:contents}
 .icon-link{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);padding:0.65rem 1.25rem;border-radius:999px;transition:all 0.15s;background:var(--bg);border:1px solid var(--border)}
 .icon-link:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
 .icon-link:hover svg{color:var(--accent-dark)}
 .icon-link svg{width:15px;height:15px;flex-shrink:0}
-.hero-visual{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:1.75rem}
+.hero-visual{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2rem}
 .photo-frame{width:280px;height:345px;position:relative;overflow:hidden;border-radius:14px;margin-top:0.4rem}
 .photo-frame picture{display:block;width:100%;height:100%}
 .photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
@@ -77,7 +78,7 @@ section{padding:7rem 4rem;max-width:1180px;margin:0 auto}
 .pub-item:last-child{border-bottom:none}
 .pub-venue-badge{text-align:left;padding:0.2rem 0;flex-shrink:0}
 .venue-name{font-size:var(--fs-2xs);font-weight:600;letter-spacing:0.085em;text-transform:uppercase;color:var(--ink);display:block;line-height:1.35}
-.venue-year{font-size:var(--fs-2xs);color:var(--ink-soft);letter-spacing:0.03em}
+.venue-year{font-size:var(--fs-xs);font-weight:500;color:var(--ink-soft);letter-spacing:0.03em}
 .pub-title{font-family:var(--ff-serif);font-size:var(--fs-lg);font-weight:400;line-height:1.42;margin-bottom:0.5rem;letter-spacing:-0.013em}
 .pub-title a{color:var(--ink);transition:color 0.18s}
 .pub-title a:hover{color:var(--accent)}
@@ -103,10 +104,10 @@ nav{padding:1rem 1.25rem;gap:0.75rem}
 .nav-logo{font-size:var(--fs-base)}
 .nav-links{gap:1.1rem}
 .nav-links a{font-size:var(--fs-xs)}
-#home{display:grid;grid-template-columns:auto 1fr;column-gap:1.5rem;row-gap:0;padding:6rem 1.25rem 3rem;min-height:auto}
+#home{display:grid;grid-template-columns:auto 1fr;column-gap:1.5rem;row-gap:0;padding:5.5rem 1.25rem 3rem;min-height:auto}
 .hero-text{max-width:100%}
 .hero-name{grid-column:2;grid-row:1/3;align-self:center;margin-bottom:0;font-size:clamp(2.35rem,9.5vw,3.1rem)}
-.hero-bio{grid-column:1/-1;grid-row:4;margin-top:1.75rem;font-size:var(--fs-base);margin-bottom:1.75rem}
+.hero-bio{grid-column:1/-1;grid-row:4;margin-top:1.5rem;font-size:var(--fs-base);margin-bottom:1.5rem}
 .hero-text,.hero-visual{display:contents}
 .photo-frame{grid-column:1;grid-row:1/3;width:150px;height:185px;margin:0;border-radius:12px}
 .research-tags{grid-column:1/-1;grid-row:3;width:auto;margin-top:1.5rem}
@@ -158,10 +159,15 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 @media (max-width:800px){.nav-hamburger{display:flex}.nav-links{display:none}}
+body>nav{top:16px;left:50%;right:auto;transform:translateX(-50%);width:calc(100% - 84px);max-width:860px;padding:0.95rem 1.75rem 0.95rem 1.4rem;border:1px solid var(--border);border-radius:999px;background:oklch(99% 0.004 75 / 0.97);backdrop-filter:blur(8px);box-shadow:0 6px 24px oklch(30% 0.02 60 / 0.06)}
+body>nav .nav-links a{padding:0.25rem 0}
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:112px;background:linear-gradient(to bottom,oklch(97.5% 0.007 75 / 0.94) 0%,oklch(97.5% 0.007 75 / 0.86) 22%,oklch(97.5% 0.007 75 / 0.66) 44%,oklch(97.5% 0.007 75 / 0.38) 64%,oklch(97.5% 0.007 75 / 0.14) 82%,oklch(97.5% 0.007 75 / 0) 100%);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);-webkit-mask-image:linear-gradient(to bottom,#000 45%,transparent);mask-image:linear-gradient(to bottom,#000 45%,transparent);pointer-events:none;z-index:99}
+@media (max-width:800px){body>nav{top:0;left:0;right:0;transform:none;width:auto;max-width:none;padding:1rem 1.25rem;border:none;border-bottom:1px solid var(--border);border-radius:0;background:var(--bg);backdrop-filter:none;box-shadow:none}body::before{display:none}}
+@media (min-width:481px) and (max-width:800px){body>nav{padding-left:max(1.25rem,calc((100% - 640px) / 2 + 1.25rem));padding-right:max(1.25rem,calc((100% - 640px) / 2 + 1.25rem))}}
 </style>
 </head>
 <body>
-<nav>
+<nav aria-label="Main">
 <a class="nav-logo" href="#home"><img src="favicon.svg" style="width:20px;height:20px;vertical-align:middle;margin-right:0.5rem;border-radius:50%" alt="">Dongjun Wei</a>
 <ul class="nav-links">
 <li><a href="#home">Home</a></li>
@@ -169,14 +175,14 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 <li><a href="about.html">About</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-<button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+<button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="nav-mobile-overlay" id="mobileMenu" aria-hidden="true">
 <div class="overlay-backdrop" id="overlayBackdrop"></div>
 <div class="overlay-drawer">
 <button class="overlay-close" id="overlayClose" aria-label="Close menu"><span></span><span></span></button>
-<nav class="overlay-nav">
+<nav class="overlay-nav" aria-label="Mobile">
 <a href="#home">Home</a>
 <a href="publications.html">Publications</a>
 <a href="about.html">About</a>
@@ -189,10 +195,10 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 <section id="home">
 <div class="hero-text">
 <h1 class="hero-name">Dongjun Wei</h1>
-<p class="hero-bio">
-I hold a PhD from the Faculty of Business and Economics at HKU and previously earned my master's degree at the Institute of Information Engineering, Chinese Academy of Sciences. I also served as a visiting scholar at the Alfred Lerner College of Business &amp; Economics, University of Delaware.<br><br>
-My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data mining, bridging information systems and computer science to tackle real-world problems in business and society. I am currently an Assistant Professor at ESCP Business School (Paris).
-</p>
+<div class="hero-bio">
+<p>I hold a PhD from the Faculty of Business and Economics at HKU and previously earned my master's degree at the Institute of Information Engineering, Chinese Academy of Sciences. I also served as a visiting scholar at the Alfred Lerner College of Business &amp; Economics, University of Delaware.</p>
+<p>My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data mining, bridging information systems and computer science to tackle real-world problems in business and society. I am currently an Assistant Professor at ESCP Business School (Paris).</p>
+</div>
 <div class="hero-links">
 <div class="hero-links-row">
 <a class="icon-link" href="https://scholar.google.com/citations?user=x22wN64AAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 512 512" fill="currentColor" style="width:15px;height:15px;flex-shrink:0"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg>Scholar</a>
@@ -287,8 +293,8 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const overlayClose = document.getElementById('overlayClose');
 const overlayBackdrop = document.getElementById('overlayBackdrop');
-function openMenu() { mobileMenu.style.display = 'flex'; requestAnimationFrame(() => requestAnimationFrame(() => mobileMenu.classList.add('open'))); hamburger.classList.add('open'); mobileMenu.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
-function closeMenu() { mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); mobileMenu.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; setTimeout(() => { mobileMenu.style.display = 'none'; }, 400); }
+function openMenu() { mobileMenu.style.display = 'flex'; requestAnimationFrame(() => requestAnimationFrame(() => mobileMenu.classList.add('open'))); hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded','true'); mobileMenu.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
+function closeMenu() { mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); mobileMenu.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; setTimeout(() => { mobileMenu.style.display = 'none'; }, 400); }
 hamburger.addEventListener('click', openMenu);
 overlayClose.addEventListener('click', closeMenu);
 overlayBackdrop.addEventListener('click', closeMenu);
