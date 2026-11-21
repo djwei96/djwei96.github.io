@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dongjun Wei</title>
-<meta name="description" content="Dongjun Wei — Assistant Professor at ESCP Business School. Research on generative AI, LLMs, trustworthy AI, healthcare, and data mining." />
+<meta name="description" content="Dongjun Wei — Assistant Professor of Information and Operations Management at ESCP Business School. Research on generative AI, LLMs, trustworthy AI, healthcare, and data mining." />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Dongjun Wei" />
-<meta property="og:description" content="Assistant Professor at ESCP Business School. Research on generative AI, LLMs, trustworthy AI, healthcare, and data mining." />
+<meta property="og:description" content="Assistant Professor of Information and Operations Management at ESCP Business School. Research on generative AI, LLMs, trustworthy AI, healthcare, and data mining." />
 <meta property="og:image" content="assets/dongjun-wei.jpg" />
 <meta name="author" content="Dongjun Wei" />
 <meta name="theme-color" content="#f7f4ef" />
@@ -17,6 +17,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet" />
 <style>
+/* ===== Layout system (same on every page) =====
+   Desktop >=1024px: two-column layouts, pill menu | Tablet 801-1023px: one column, full width, pill menu
+   Mobile <=800px: one column, full width, menu bar. One container: max 1180px wide, side margin = --gutter */
+:root{--gutter:4rem;--pill-pad:0.65rem 1.1rem;--pill-fs:var(--fs-sm)}
+@media (max-width:800px){:root{--gutter:2rem;--pill-pad:0.55rem 1rem;--pill-fs:var(--fs-xs)}}
+@media (max-width:480px){:root{--gutter:1.25rem}}
 :root{
   --bg:oklch(97.5% 0.007 75);
   --surface:oklch(94% 0.01 70);
@@ -35,13 +41,14 @@
   --fs-base:1rem;
   --fs-md:1.0625rem;
   --fs-lg:1.1875rem;
-  --fs-xl:1.5rem;
+  --fs-xl:clamp(1.375rem,1.2rem + 0.4vw,1.5rem);
   --fs-2xl:clamp(1.875rem,3.2vw,2.375rem);
   --fs-3xl:clamp(2.25rem,4.2vw,3rem);
   --fs-4xl:clamp(2.75rem,5.2vw,4rem);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:8rem}
+@media (max-width:800px){html{scroll-padding-top:5.5rem}}
 a{color:var(--accent);text-decoration:none}
 a:hover{color:var(--ink)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
@@ -50,29 +57,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-logo{font-size:var(--fs-md);font-weight:500;letter-spacing:-0.01em;color:var(--ink);white-space:nowrap;display:flex;align-items:center}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);transition:color 0.2s}
-.nav-links a:hover{color:var(--ink)}
-#home{display:flex;align-items:flex-start;justify-content:flex-start;max-width:1180px;margin:0 auto;padding:9.5rem 4rem 5rem;gap:clamp(3rem,9vw,8rem)}
-.hero-text{max-width:560px;flex:0 1 560px;min-width:0}
-.hero-name{font-family:var(--ff-serif);font-size:var(--fs-4xl);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:2rem;color:var(--ink)}
-.hero-bio{font-size:var(--fs-md);color:var(--ink-mid);line-height:1.7;max-width:31em;margin-bottom:2rem}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+/* Hero. Desktop: two columns (name + bio | photo), links full width underneath. Tablet & phone: everything full width. */
+#home{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"name photo" "bio photo" "links links";column-gap:clamp(3rem,7vw,8rem);align-items:start;max-width:1180px;margin:0 auto;padding:9.5rem var(--gutter) 5rem}
+.hero-text,.hero-visual{display:contents}
+.hero-name{grid-area:name;font-family:var(--ff-serif);font-size:var(--fs-4xl);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:2rem;margin-left:-0.05em;color:var(--ink)}
+.hero-bio{grid-area:bio;font-size:var(--fs-md);color:var(--ink-mid);line-height:1.7;margin-bottom:2rem}
 .hero-bio strong{color:var(--ink);font-weight:600}
 .hero-bio p+p{margin-top:1em}
-.hero-links{display:flex;flex-wrap:wrap;gap:0.6rem;align-items:flex-start}
+.hero-links{grid-area:links;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:flex-start}
 .hero-links-row{display:contents}
-.icon-link{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);padding:0.65rem 1.25rem;border-radius:999px;transition:all 0.15s;background:var(--bg);border:1px solid var(--border)}
-.icon-link:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
-.icon-link:hover svg{color:var(--accent-dark)}
+.icon-link{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--pill-fs);font-weight:500;color:var(--ink-mid);padding:var(--pill-pad);border-radius:999px;transition:all 0.15s;background:var(--bg);border:1px solid var(--border)}
+@media (hover:hover){.icon-link:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
+.icon-link:hover svg{color:var(--accent-dark)}}
+.icon-link:active{transform:scale(0.97);background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
 .icon-link svg{width:15px;height:15px;flex-shrink:0}
-.hero-visual{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2rem}
-.photo-frame{width:280px;height:345px;position:relative;overflow:hidden;border-radius:14px;margin-top:0.4rem}
+.photo-frame{grid-area:photo;width:280px;height:345px;position:relative;overflow:hidden;border-radius:14px;margin:0.4rem 0 2rem}
+@media (max-width:1023px){#home{grid-template-columns:auto 1fr;grid-template-areas:"photo name" "bio bio" "links links";column-gap:2rem;align-items:center}.photo-frame{width:180px;height:222px;margin:0}.hero-name{margin:0}.hero-bio{margin-top:2rem}}
 .photo-frame picture{display:block;width:100%;height:100%}
 .photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.research-tags{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:flex-start;width:280px}
-.tag{font-size:var(--fs-xs);font-weight:500;padding:0.35rem 0.8rem;background:var(--surface);color:var(--ink-mid);border-radius:999px;white-space:nowrap}
 section{padding:7rem 4rem;max-width:1180px;margin:0 auto}
 .section-title{font-family:var(--ff-serif);font-size:var(--fs-2xl);font-weight:400;letter-spacing:-0.024em;line-height:1.15;margin-bottom:2.5rem;color:var(--ink)}
 #publications{max-width:100%;border-top:1px solid var(--border)}
-#publications>.inner{max-width:1180px;margin:0 auto;padding:5.5rem 4rem 6rem}
+#publications>.inner{max-width:1180px;margin:0 auto;padding:5.5rem var(--gutter) 6rem}
 .pub-list{list-style:none;margin-bottom:2.5rem}
 .pub-item{display:grid;grid-template-columns:96px 1fr;gap:0 2.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border);align-items:start}
 .pub-item:last-child{border-bottom:none}
@@ -88,34 +95,28 @@ section{padding:7rem 4rem;max-width:1180px;margin:0 auto}
 .pub-authors{font-size:var(--fs-sm);font-weight:400;color:var(--ink-mid);margin-bottom:0.4rem;letter-spacing:0}
 .pub-authors strong{color:var(--ink);font-weight:600}
 .pub-keywords{font-size:var(--fs-xs);color:var(--ink-soft);letter-spacing:0.005em}
-.view-all-btn{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--fs-sm);font-weight:500;color:var(--ink-mid);padding:0.65rem 1.25rem;border-radius:999px;transition:all 0.15s;background:var(--bg);border:1px solid var(--border)}
-.view-all-btn:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
+.view-all-btn{display:inline-flex;align-items:center;gap:0.5rem;font-size:var(--pill-fs);font-weight:500;color:var(--ink-mid);padding:var(--pill-pad);border-radius:999px;transition:all 0.15s;background:var(--bg);border:1px solid var(--border)}
+@media (hover:hover){.view-all-btn:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}}
+.view-all-btn:active{transform:scale(0.97);background:var(--accent-light);border-color:var(--accent);color:var(--accent-dark)}
 #contact{max-width:100%;border-top:1px solid var(--border)}
-#contact>.inner{max-width:1180px;margin:0 auto;padding:5.5rem 4rem;color:var(--ink)}
+#contact>.inner{max-width:1180px;margin:0 auto;padding:5.5rem var(--gutter);color:var(--ink)}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start}
 .contact-detail{display:flex;flex-direction:column;gap:0.85rem;margin-bottom:0}
 .contact-row{display:flex;align-items:flex-start;gap:0.75rem;font-size:var(--fs-base);color:var(--ink-mid)}
 .contact-row svg{width:15px;height:15px;color:var(--accent);flex-shrink:0;margin-top:0.3em}
 .contact-row a{color:inherit}
 .contact-row a:hover{color:var(--ink)}
-footer{color:var(--ink-soft);text-align:center;padding:2rem 4rem;font-size:var(--fs-xs);border-top:1px solid var(--border)}
+footer{color:var(--ink-soft);text-align:center;padding:2rem var(--gutter);font-size:var(--fs-xs);border-top:1px solid var(--border)}
 @media (max-width:800px){
-nav{padding:1rem 1.25rem;gap:0.75rem}
+nav{padding:1rem var(--gutter);gap:0.75rem}
 .nav-logo{font-size:var(--fs-base)}
 .nav-links{gap:1.1rem}
 .nav-links a{font-size:var(--fs-xs)}
-#home{display:grid;grid-template-columns:auto 1fr;column-gap:1.5rem;row-gap:0;padding:5.5rem 1.25rem 3rem;min-height:auto}
-.hero-text{max-width:100%}
-.hero-name{grid-column:2;grid-row:1/3;align-self:center;margin-bottom:0;font-size:clamp(2.35rem,9.5vw,3.1rem)}
-.hero-bio{grid-column:1/-1;grid-row:4;margin-top:1.5rem;font-size:var(--fs-base);margin-bottom:1.5rem}
-.hero-text,.hero-visual{display:contents}
-.photo-frame{grid-column:1;grid-row:1/3;width:150px;height:185px;margin:0;border-radius:12px}
-.research-tags{grid-column:1/-1;grid-row:3;width:auto;margin-top:1.5rem}
-.tag{font-size:var(--fs-2xs);padding:0.3rem 0.7rem}
-.hero-links{grid-column:1/-1;grid-row:5;gap:0.5rem}
-.icon-link{font-size:var(--fs-xs);padding:0.55rem 1rem}
-section{padding:3.5rem 1.25rem}
-#publications>.inner,#contact>.inner{padding:3.5rem 1.25rem}
+#home{column-gap:1.5rem;padding:5.5rem var(--gutter) 3rem}
+.hero-bio{margin-top:1.5rem;font-size:var(--fs-base);margin-bottom:1.5rem}
+.photo-frame{width:150px;height:185px;border-radius:12px}
+section{padding:3.5rem var(--gutter)}
+#publications>.inner,#contact>.inner{padding:3.5rem var(--gutter)}
 .section-title{margin-bottom:2rem}
 .pub-item{grid-template-columns:1fr;gap:0.4rem;padding:1.5rem 0}
 .pub-venue-badge{display:flex;align-items:baseline;gap:0.5rem;width:auto}
@@ -125,18 +126,13 @@ section{padding:3.5rem 1.25rem}
 .contact-grid{grid-template-columns:1fr;gap:1.5rem}
 .contact-row{font-size:var(--fs-sm);flex-wrap:nowrap}
 .contact-row a{word-break:break-all}
-footer{padding:1.5rem;font-size:var(--fs-2xs)}
+footer{padding:1.5rem var(--gutter);font-size:var(--fs-2xs)}
 }
 @media (max-width:480px){
 .nav-links{gap:0.7rem}
-.nav-links a{font-size:0.75rem}
+.nav-links a{font-size:var(--fs-2xs)}
 #home{column-gap:1rem;padding-top:5.5rem}
 .photo-frame{width:100px;height:123px;border-radius:10px}
-.hero-name{font-size:clamp(1.9rem,8.5vw,2.6rem)}
-}
-@media (min-width:481px) and (max-width:800px){
-#home,#publications>.inner,#contact>.inner{max-width:640px;margin-left:auto;margin-right:auto}
-.hero-bio{max-width:none}
 }
 .nav-mobile-overlay{display:none;position:fixed;inset:0;z-index:1000}
 .nav-mobile-overlay.open{display:flex}
@@ -152,25 +148,30 @@ footer{padding:1.5rem;font-size:var(--fs-2xs)}
 .overlay-nav a{font-family:var(--ff-serif);font-size:var(--fs-xl);font-weight:400;letter-spacing:-0.02em;color:var(--ink);padding:0.6rem 0;transition:color 0.2s, padding-left 0.2s;display:block}
 .overlay-nav a:hover{color:var(--accent);padding-left:0.5rem}
 .overlay-footer{display:flex;justify-content:center;align-items:center;gap:0.6rem;margin-top:auto;padding-top:2rem}
-.overlay-footer span{font-size:0.8rem;color:var(--ink-soft)}
+.overlay-footer span{font-size:var(--fs-xs);color:var(--ink-soft)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:11px;margin:-11px;background:none;border:none;z-index:200}
 .nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:all 0.3s ease;transform-origin:center}
 .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 @media (max-width:800px){.nav-hamburger{display:flex}.nav-links{display:none}}
-body>nav{top:16px;left:50%;right:auto;transform:translateX(-50%);width:calc(100% - 84px);max-width:860px;padding:0.95rem 1.75rem 0.95rem 1.4rem;border:1px solid var(--border);border-radius:999px;background:oklch(99% 0.004 75 / 0.97);backdrop-filter:blur(8px);box-shadow:0 6px 24px oklch(30% 0.02 60 / 0.06)}
+body>nav{top:16px;left:50%;right:auto;transform:translateX(-50%);width:calc(min(100% - 8rem, 1052px) + 3rem + 2px);max-width:none;padding:0.95rem 1.5rem;border:1px solid var(--border);border-radius:999px;background:oklch(99% 0.004 75 / 0.86);-webkit-backdrop-filter:saturate(1.6) blur(16px);backdrop-filter:saturate(1.6) blur(16px);box-shadow:0 6px 24px oklch(30% 0.02 60 / 0.06);will-change:transform}
 body>nav .nav-links a{padding:0.25rem 0}
-body::before{content:"";position:fixed;top:0;left:0;right:0;height:112px;background:linear-gradient(to bottom,oklch(97.5% 0.007 75 / 0.94) 0%,oklch(97.5% 0.007 75 / 0.86) 22%,oklch(97.5% 0.007 75 / 0.66) 44%,oklch(97.5% 0.007 75 / 0.38) 64%,oklch(97.5% 0.007 75 / 0.14) 82%,oklch(97.5% 0.007 75 / 0) 100%);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);-webkit-mask-image:linear-gradient(to bottom,#000 45%,transparent);mask-image:linear-gradient(to bottom,#000 45%,transparent);pointer-events:none;z-index:99}
-@media (max-width:800px){body>nav{top:0;left:0;right:0;transform:none;width:auto;max-width:none;padding:1rem 1.25rem;border:none;border-bottom:1px solid var(--border);border-radius:0;background:var(--bg);backdrop-filter:none;box-shadow:none}body::before{display:none}}
-@media (min-width:481px) and (max-width:800px){body>nav{padding-left:max(1.25rem,calc((100% - 640px) / 2 + 1.25rem));padding-right:max(1.25rem,calc((100% - 640px) / 2 + 1.25rem))}}
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:112px;background:linear-gradient(to bottom,oklch(97.5% 0.007 75 / 0.94) 0%,oklch(97.5% 0.007 75 / 0.86) 22%,oklch(97.5% 0.007 75 / 0.66) 44%,oklch(97.5% 0.007 75 / 0.38) 64%,oklch(97.5% 0.007 75 / 0.14) 82%,oklch(97.5% 0.007 75 / 0) 100%);pointer-events:none;z-index:99;transform:translateZ(0)}
+@media (max-width:800px){body>nav{top:0;left:0;right:0;transform:none;width:auto;max-width:none;padding:1rem var(--gutter);border:none;border-bottom:1px solid var(--border);border-radius:0;background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}body::before{display:none}}
+.icon-link:focus-visible,.view-all-btn:focus-visible{border-radius:999px}
+a,button{-webkit-tap-highlight-color:transparent}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:800px){.contact-row a{display:inline-block;padding:0.3rem 0;margin:-0.3rem 0}}
+/* Type scale on phones: display headings step down */
+@media (max-width:800px){:root{--fs-4xl:clamp(1.9rem,8.5vw,3.1rem);--fs-3xl:clamp(2.1rem,8.5vw,2.75rem)}}
 </style>
 </head>
 <body>
 <nav aria-label="Main">
 <a class="nav-logo" href="#home"><img src="favicon.svg" style="width:20px;height:20px;vertical-align:middle;margin-right:0.5rem;border-radius:50%" alt="">Dongjun Wei</a>
 <ul class="nav-links">
-<li><a href="#home">Home</a></li>
+<li><a href="#home" class="active" aria-current="page">Home</a></li>
 <li><a href="publications.html">Publications</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -197,32 +198,24 @@ body::before{content:"";position:fixed;top:0;left:0;right:0;height:112px;backgro
 <h1 class="hero-name">Dongjun Wei</h1>
 <div class="hero-bio">
 <p>I hold a PhD from the Faculty of Business and Economics at HKU and previously earned my master's degree at the Institute of Information Engineering, Chinese Academy of Sciences. I also served as a visiting scholar at the Alfred Lerner College of Business &amp; Economics, University of Delaware.</p>
-<p>My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data mining, bridging information systems and computer science to tackle real-world problems in business and society. I am currently an Assistant Professor at ESCP Business School (Paris).</p>
+<p>My research focuses on generative AI, LLMs, trustworthy AI, healthcare, and data mining, bridging information systems and computer science to tackle real-world problems in business and society. I am currently an Assistant Professor in the Information and Operations Management (IOM) Department at ESCP Business School (Paris).</p>
 </div>
 <div class="hero-links">
 <div class="hero-links-row">
-<a class="icon-link" href="https://scholar.google.com/citations?user=x22wN64AAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 512 512" fill="currentColor" style="width:15px;height:15px;flex-shrink:0"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg>Scholar</a>
+<a class="icon-link" href="https://scholar.google.com/citations?user=x22wN64AAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 512 512" fill="currentColor" style="width:15px;height:15px;flex-shrink:0"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg>Scholar</a>
 <a class="icon-link" href="https://orcid.org/0000-0003-3199-2367" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="16" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" style="fill:var(--bg)">iD</text></svg>ORCID</a>
-<a class="icon-link" href="https://github.com/djwei96" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
-<a class="icon-link" href="https://www.linkedin.com/in/dongjun-wei" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+<a class="icon-link" href="https://github.com/djwei96" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
+<a class="icon-link" href="https://www.linkedin.com/in/dongjun-wei" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
 </div>
 <div class="hero-links-row">
-<a class="icon-link" href="mailto:dwei@escp.eu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>Email</a>
+<a class="icon-link" href="mailto:dwei@escp.eu"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>Email</a>
+<a class="icon-link" href="https://escp.eu/faculty-research/faculty-members/wei-dongjun" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6"/><path d="M5 10v9M9.5 10v9M14.5 10v9M19 10v9M3 20h18"/></svg>ESCP</a>
 </div>
 </div>
 </div>
 
 <div class="hero-visual">
 <div class="photo-frame"><picture><source srcset="assets/dongjun-wei.webp" type="image/webp" /><img src="assets/dongjun-wei.jpg" alt="Dongjun Wei" width="560" height="690" fetchpriority="high" decoding="async" /></picture></div>
-<div class="research-tags">
-<span class="tag">Generative AI</span>
-<span class="tag">Large Language Models</span>
-<span class="tag">Trustworthy AI</span>
-<span class="tag">AI Fairness</span>
-<span class="tag">Healthcare</span>
-<span class="tag">Data Mining</span>
-<span class="tag">Information Systems</span>
-</div>
 </div>
 </section>
 
@@ -255,7 +248,7 @@ body::before{content:"";position:fixed;top:0;left:0;right:0;height:112px;backgro
 </div>
 </li>
 </ul>
-<div style="text-align:center;padding-top:1rem"><a href="publications.html" class="view-all-btn">View All Publications →</a></div>
+<div style="padding-top:1.5rem"><a href="publications.html" class="view-all-btn">View All Publications →</a></div>
 </div>
 </div>
 
